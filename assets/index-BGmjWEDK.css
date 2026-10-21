@@ -355,3 +355,85 @@ blockquote:hover {
   color: #1e2822;
   font-weight: 600;
 }
+
+
+/* =========================================================================
+   CUSTOM SOOTHING MEDICAL-AESTHETIC CURSOR
+   ========================================================================= */
+
+@media (pointer: fine) {
+  /* Hide default cursor on desktop */
+  body, a, button, summary, input, select, textarea {
+    cursor: none !important;
+  }
+
+  /* Inner dot cursor */
+  #custom-cursor-dot {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 8px;
+    height: 8px;
+    background-color: #2d4739;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 999999;
+    transform: translate(-50%, -50%);
+    transition: width 0.2s cubic-bezier(0.16, 1, 0.3, 1), 
+                height 0.2s cubic-bezier(0.16, 1, 0.3, 1), 
+                background-color 0.2s ease,
+                opacity 0.2s ease;
+  }
+
+  /* Outer fluid trailing ring */
+  #custom-cursor-ring {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 36px;
+    height: 36px;
+    border: 1.5px solid rgba(45, 71, 57, 0.45);
+    background: rgba(192, 99, 59, 0.04);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 999998;
+    transform: translate(-50%, -50%);
+    transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1), 
+                height 0.3s cubic-bezier(0.16, 1, 0.3, 1), 
+                border-color 0.3s ease, 
+                background-color 0.3s ease,
+                transform 0.15s ease-out;
+  }
+
+  /* Cursor state when hovering interactive elements */
+  body.cursor-hover #custom-cursor-dot {
+    width: 12px;
+    height: 12px;
+    background-color: #c0633b;
+    box-shadow: 0 0 12px rgba(192, 99, 59, 0.6);
+  }
+
+  body.cursor-hover #custom-cursor-ring {
+    width: 58px;
+    height: 58px;
+    border-color: rgba(192, 99, 59, 0.6);
+    background: rgba(192, 99, 59, 0.08);
+  }
+
+  /* Cursor click contraction */
+  body.cursor-active #custom-cursor-dot {
+    transform: translate(-50%, -50%) scale(0.6);
+  }
+
+  body.cursor-active #custom-cursor-ring {
+    transform: translate(-50%, -50%) scale(0.85);
+    border-color: #2d4739;
+  }
+}
+
+@media (pointer: coarse) {
+  /* Hide custom cursor elements on mobile/touch devices */
+  #custom-cursor-dot, #custom-cursor-ring {
+    display: none !important;
+  }
+}

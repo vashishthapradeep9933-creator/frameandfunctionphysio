@@ -643,7 +643,70 @@ document.addEventListener("DOMContentLoaded", function() {
   setInterval(triggerToast, 22000);
 });
 </script>
+<!-- Custom Interactive Aesthetic Cursor Elements -->
+<div id="custom-cursor-dot"></div>
+<div id="custom-cursor-ring"></div>
+
+<script>
+(function() {
+  // Only initialize custom cursor on non-touch devices
+  if (window.matchMedia("(pointer: fine)").matches) {
+    var dot = document.getElementById("custom-cursor-dot");
+    var ring = document.getElementById("custom-cursor-ring");
+    
+    var mouseX = -100, mouseY = -100;
+    var ringX = -100, ringY = -100;
+
+    window.addEventListener("mousemove", function(e) {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+      
+      // Instant position for precision dot
+      dot.style.left = mouseX + "px";
+      dot.style.top = mouseY + "px";
+    });
+
+    // Smooth fluid animation loop for trailing ring (Spring physics)
+    function animateRing() {
+      ringX += (mouseX - ringX) * 0.18;
+      ringY += (mouseY - ringY) * 0.18;
+      
+      ring.style.left = ringX + "px";
+      ring.style.top = ringY + "px";
+      
+      requestAnimationFrame(animateRing);
+    }
+    requestAnimationFrame(animateRing);
+
+    // Interactive Hover Listeners
+    function attachHoverHandlers() {
+      var clickables = document.querySelectorAll("a, button, summary, .faq-card, .team-card, .support-card, .footer-cookie, input, select");
+      clickables.forEach(function(el) {
+        el.addEventListener("mouseenter", function() {
+          document.body.classList.add("cursor-hover");
+        });
+        el.addEventListener("mouseleave", function() {
+          document.body.classList.remove("cursor-hover");
+        });
+      });
+    }
+
+    window.addEventListener("mousedown", function() {
+      document.body.classList.add("cursor-active");
+    });
+    window.addEventListener("mouseup", function() {
+      document.body.classList.remove("cursor-active");
+    });
+
+    // Attach on load and periodically for dynamically rendered elements
+    document.addEventListener("DOMContentLoaded", attachHoverHandlers);
+    setTimeout(attachHoverHandlers, 1000);
+    setTimeout(attachHoverHandlers, 2500);
+  }
+})();
+</script>
 </body></html>
+
 
 
 
