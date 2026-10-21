@@ -705,6 +705,34 @@ document.addEventListener("DOMContentLoaded", function() {
   }
 })();
 </script>
+<script>
+// Rupee Symbol Encoding Fixer
+(function() {
+  function fixRupee() {
+    document.querySelectorAll(".price, span, p, h3, h4").forEach(function(el) {
+      if (el.children.length === 0 && (el.textContent.includes(",") || el.textContent.includes("â,¹") || el.textContent.includes("Â,¹") || el.textContent.includes("â¹") || el.textContent.includes("") || el.textContent.includes("?,1"))) {
+        el.textContent = el.textContent
+          .replace(/[âÂ\?][,¹\s]*(\d+)/g, "₹$1")
+          .replace(/₹\s*(\d+)/g, "₹$1");
+      }
+    });
+  }
+  
+  // Run immediately and after hydration
+  fixRupee();
+  document.addEventListener("DOMContentLoaded", fixRupee);
+  window.addEventListener("load", fixRupee);
+  setTimeout(fixRupee, 400);
+  setTimeout(fixRupee, 1200);
+  setTimeout(fixRupee, 2500);
+
+  // Observe dynamically rendered tab changes
+  var observer = new MutationObserver(function() {
+    fixRupee();
+  });
+  observer.observe(document.body, { childList: true, subtree: true });
+})();
+</script>
 </body></html>
 
 
