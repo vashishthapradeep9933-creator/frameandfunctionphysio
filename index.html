@@ -573,6 +573,77 @@ document.addEventListener("DOMContentLoaded", function() {
   setTimeout(enrichFaq, 1500);
 });
 </script>
+<!-- Soothing Ambient Glow & Progress Bar -->
+<div id="scroll-progress"></div>
+<div class="ambient-glow" style="top: 10%; right: -100px;"></div>
+<div class="ambient-glow" style="top: 55%; left: -150px; background: radial-gradient(circle, rgba(45,71,57,0.12) 0%, rgba(192,99,59,0.06) 50%, transparent 70%);"></div>
+
+<!-- Live Patient Trust Notification -->
+<div id="live-toast" class="live-toast">
+  <div class="toast-dot"></div>
+  <div class="toast-text">
+    <strong id="toast-title">1-on-1 Consultation Booked</strong><br>
+    <span id="toast-desc">Patient from Vaishali Nagar, Jaipur scheduled for tomorrow</span>
+  </div>
+</div>
+
+<script>
+// 1. Reading Progress Bar
+window.addEventListener("scroll", function() {
+  var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+  var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+  var scrolled = (winScroll / height) * 100;
+  var bar = document.getElementById("scroll-progress");
+  if (bar) bar.style.width = scrolled + "%";
+});
+
+// 2. Smooth Scroll Observer for Reveal Effects
+document.addEventListener("DOMContentLoaded", function() {
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("is-visible");
+      }
+    });
+  }, { threshold: 0.15 });
+
+  document.querySelectorAll("section, article, blockquote, .step, .why").forEach(function(el) {
+    el.classList.add("soothing-fade-in");
+    observer.observe(el);
+  });
+
+  // 3. Realistic, Gentle Patient Trust Popups (Every 18 seconds)
+  var toast = document.getElementById("live-toast");
+  var title = document.getElementById("toast-title");
+  var desc = document.getElementById("toast-desc");
+  
+  var notifications = [
+    { title: "Consultation Booked", desc: "Patient from Panchyawala booked back pain assessment." },
+    { title: "Sports Rehab In Progress", desc: "Knee ligament recovery plan tailored by Dr. Gargi." },
+    { title: "New Patient Review", desc: "5.0 ★★★★★ rating on Google for frozen shoulder treatment." },
+    { title: "Walk-ins & Appointments", desc: "Clinic open today till 8:00 PM on Karni Palace Road." }
+  ];
+  
+  var currentIdx = 0;
+  function triggerToast() {
+    if (!toast) return;
+    var data = notifications[currentIdx];
+    title.textContent = data.title;
+    desc.textContent = data.desc;
+    toast.classList.add("show");
+    
+    setTimeout(function() {
+      toast.classList.remove("show");
+    }, 5500);
+
+    currentIdx = (currentIdx + 1) % notifications.length;
+  }
+
+  setTimeout(triggerToast, 4000);
+  setInterval(triggerToast, 22000);
+});
+</script>
 </body></html>
+
 
 

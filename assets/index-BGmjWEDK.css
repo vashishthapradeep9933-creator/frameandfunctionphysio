@@ -151,3 +151,207 @@
     padding: 0 20px 20px !important;
   }
 }
+
+
+/* =========================================================================
+   SOOTHING, MODERN, HIGH-CONVERTING AESTHETICS & MICRO-INTERACTIONS
+   ========================================================================= */
+
+/* Smooth scrolling across the entire page */
+html {
+  scroll-behavior: smooth !important;
+}
+
+/* Custom subtle ambient page background texture & soft lighting */
+body {
+  background-color: #faf7f2 !important;
+  color: #242e27 !important;
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  overflow-x: hidden;
+}
+
+/* Subtle top progress bar on scroll */
+#scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3.5px;
+  background: linear-gradient(90deg, #2d4739, #c0633b, #e8b25a);
+  width: 0%;
+  z-index: 99999;
+  transition: width 0.1s ease-out;
+  box-shadow: 0 0 10px rgba(192, 99, 59, 0.5);
+}
+
+/* Calming Glassmorphic Floating Header */
+header, .site-header, nav {
+  backdrop-filter: blur(14px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(14px) saturate(180%) !important;
+  background: rgba(250, 247, 242, 0.85) !important;
+  border-bottom: 1px solid rgba(215, 206, 193, 0.5) !important;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+/* Hero Section Soothing Presence */
+.hero, section:first-of-type {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Soft ambient breathing glow in background */
+.ambient-glow {
+  position: absolute;
+  width: 450px;
+  height: 450px;
+  background: radial-gradient(circle, rgba(192, 99, 59, 0.12) 0%, rgba(45, 71, 57, 0.05) 50%, transparent 70%);
+  border-radius: 50%;
+  filter: blur(60px);
+  pointer-events: none;
+  animation: soothingPulse 8s ease-in-out infinite alternate;
+  z-index: 0;
+}
+
+@keyframes soothingPulse {
+  0% { transform: scale(1) translate(0, 0); opacity: 0.6; }
+  50% { transform: scale(1.15) translate(30px, -20px); opacity: 0.9; }
+  100% { transform: scale(1) translate(-20px, 15px); opacity: 0.6; }
+}
+
+/* Premium Image Hover & Gentle Float */
+.hero img, .team-card img, figure img {
+  border-radius: 24px !important;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.6s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  box-shadow: 0 18px 45px rgba(35, 48, 39, 0.08) !important;
+}
+
+.hero img:hover, .team-card img:hover, figure img:hover {
+  transform: translateY(-6px) scale(1.015) !important;
+  box-shadow: 0 25px 55px rgba(35, 48, 39, 0.14) !important;
+}
+
+/* Buttons with tactile feedback and breathing glow */
+button, .button, a.button {
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  position: relative;
+  overflow: hidden;
+  border-radius: 100px !important;
+}
+
+button:hover, .button:hover, a.button:hover {
+  transform: translateY(-3px) scale(1.02) !important;
+  box-shadow: 0 12px 28px rgba(45, 71, 57, 0.22) !important;
+}
+
+button:active, .button:active, a.button:active {
+  transform: translateY(-1px) scale(0.99) !important;
+}
+
+/* Pill Badges */
+.eyebrow {
+  letter-spacing: 0.14em !important;
+  transition: all 0.3s ease !important;
+}
+
+/* Interactive Therapy / Feature Cards */
+article, .card, .step, .why, .review-slider blockquote {
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  border-radius: 20px !important;
+}
+
+article:hover, .card:hover, .step:hover {
+  transform: translateY(-5px) !important;
+  box-shadow: 0 16px 36px rgba(45, 71, 57, 0.07) !important;
+}
+
+/* Testimonial Quote Cards */
+blockquote {
+  background: #ffffff !important;
+  border: 1px solid rgba(220, 212, 199, 0.7) !important;
+  border-radius: 22px !important;
+  padding: 30px !important;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.03) !important;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+blockquote:hover {
+  transform: translateY(-4px) !important;
+  box-shadow: 0 18px 45px rgba(45, 71, 57, 0.09) !important;
+  border-color: rgba(45, 71, 57, 0.3) !important;
+}
+
+/* WhatsApp Floating Widget Soothing Sonar Pulse */
+.wa-widget {
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.wa-btn {
+  box-shadow: 0 8px 30px rgba(37, 211, 102, 0.4) !important;
+  transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+}
+
+.wa-btn:hover {
+  transform: scale(1.08) rotate(5deg) !important;
+  box-shadow: 0 14px 40px rgba(37, 211, 102, 0.55) !important;
+}
+
+/* Ultra-smooth Reveal on Scroll */
+.soothing-fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.soothing-fade-in.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Live Notification Toast: Social Proof */
+.live-toast {
+  position: fixed;
+  bottom: 25px;
+  left: 25px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(215, 206, 193, 0.8);
+  border-radius: 16px;
+  padding: 14px 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+  z-index: 9999;
+  transform: translateY(100px);
+  opacity: 0;
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.live-toast.show {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.toast-dot {
+  width: 10px;
+  height: 10px;
+  background: #25d366;
+  border-radius: 50%;
+  box-shadow: 0 0 10px #25d366;
+  animation: toastBlink 2s infinite;
+}
+
+@keyframes toastBlink {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.85); }
+}
+
+.toast-text {
+  font-size: 13px;
+  line-height: 1.35;
+  color: #2d4739;
+}
+.toast-text strong {
+  color: #1e2822;
+  font-weight: 600;
+}
