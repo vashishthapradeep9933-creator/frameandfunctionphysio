@@ -364,7 +364,7 @@ blockquote:hover {
 @media (pointer: fine) {
   /* Hide default cursor on desktop */
   body, a, button, summary, input, select, textarea {
-    cursor: none !important;
+    /* keep default cursor safe */
   }
 
   /* Inner dot cursor */
@@ -436,4 +436,49 @@ blockquote:hover {
   #custom-cursor-dot, #custom-cursor-ring {
     display: none !important;
   }
+}
+
+
+/* Ultra-Visible Luxury Trailing Aura Cursor */
+#custom-cursor-dot {
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  width: 10px !important;
+  height: 10px !important;
+  background-color: #2d4739 !important;
+  border-radius: 50% !important;
+  pointer-events: none !important;
+  z-index: 2147483647 !important;
+  transform: translate(-50%, -50%) !important;
+  box-shadow: 0 0 8px rgba(45, 71, 57, 0.8) !important;
+  display: block !important;
+}
+
+#custom-cursor-ring {
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  width: 40px !important;
+  height: 40px !important;
+  border: 2px solid #c0633b !important;
+  background: rgba(192, 99, 59, 0.1) !important;
+  border-radius: 50% !important;
+  pointer-events: none !important;
+  z-index: 2147483646 !important;
+  transform: translate(-50%, -50%) !important;
+  box-shadow: 0 0 15px rgba(192, 99, 59, 0.4) !important;
+  display: block !important;
+}
+
+body.cursor-hover #custom-cursor-ring {
+  width: 65px !important;
+  height: 65px !important;
+  background: rgba(45, 71, 57, 0.15) !important;
+  border-color: #2d4739 !important;
+}
+
+body.cursor-hover #custom-cursor-dot {
+  background-color: #c0633b !important;
+  transform: translate(-50%, -50%) scale(1.5) !important;
 }
