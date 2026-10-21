@@ -357,61 +357,7 @@ blockquote:hover {
 }
 
 
-/* =========================================================================
-   CUSTOM SOOTHING MEDICAL-AESTHETIC CURSOR
-   ========================================================================= */
 
-@media (pointer: fine) {
-  /* Hide default cursor on desktop */
-  body, a, button, summary, input, select, textarea {
-    /* keep default cursor safe */
-  }
-
-  /* Inner dot cursor */
-  #custom-cursor-dot {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 8px;
-    height: 8px;
-    background-color: #2d4739;
-    border-radius: 50%;
-    pointer-events: none;
-    z-index: 999999;
-    transform: translate(-50%, -50%);
-    transition: width 0.2s cubic-bezier(0.16, 1, 0.3, 1), 
-                height 0.2s cubic-bezier(0.16, 1, 0.3, 1), 
-                background-color 0.2s ease,
-                opacity 0.2s ease;
-  }
-
-  /* Outer fluid trailing ring */
-  #custom-cursor-ring {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 36px;
-    height: 36px;
-    border: 1.5px solid rgba(45, 71, 57, 0.45);
-    background: rgba(192, 99, 59, 0.04);
-    border-radius: 50%;
-    pointer-events: none;
-    z-index: 999998;
-    transform: translate(-50%, -50%);
-    transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1), 
-                height 0.3s cubic-bezier(0.16, 1, 0.3, 1), 
-                border-color 0.3s ease, 
-                background-color 0.3s ease,
-                transform 0.15s ease-out;
-  }
-
-  /* Cursor state when hovering interactive elements */
-  body.cursor-hover #custom-cursor-dot {
-    width: 12px;
-    height: 12px;
-    background-color: #c0633b;
-    box-shadow: 0 0 12px rgba(192, 99, 59, 0.6);
-  }
 
   body.cursor-hover #custom-cursor-ring {
     width: 58px;
@@ -439,46 +385,4 @@ blockquote:hover {
 }
 
 
-/* Ultra-Visible Luxury Trailing Aura Cursor */
-#custom-cursor-dot {
-  position: fixed !important;
-  top: 0;
-  left: 0;
-  width: 10px !important;
-  height: 10px !important;
-  background-color: #2d4739 !important;
-  border-radius: 50% !important;
-  pointer-events: none !important;
-  z-index: 2147483647 !important;
-  transform: translate(-50%, -50%) !important;
-  box-shadow: 0 0 8px rgba(45, 71, 57, 0.8) !important;
-  display: block !important;
-}
 
-#custom-cursor-ring {
-  position: fixed !important;
-  top: 0;
-  left: 0;
-  width: 40px !important;
-  height: 40px !important;
-  border: 2px solid #c0633b !important;
-  background: rgba(192, 99, 59, 0.1) !important;
-  border-radius: 50% !important;
-  pointer-events: none !important;
-  z-index: 2147483646 !important;
-  transform: translate(-50%, -50%) !important;
-  box-shadow: 0 0 15px rgba(192, 99, 59, 0.4) !important;
-  display: block !important;
-}
-
-body.cursor-hover #custom-cursor-ring {
-  width: 65px !important;
-  height: 65px !important;
-  background: rgba(45, 71, 57, 0.15) !important;
-  border-color: #2d4739 !important;
-}
-
-body.cursor-hover #custom-cursor-dot {
-  background-color: #c0633b !important;
-  transform: translate(-50%, -50%) scale(1.5) !important;
-}
