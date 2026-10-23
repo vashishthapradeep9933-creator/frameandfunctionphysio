@@ -588,86 +588,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 
-<!-- Floating Animated Language Switcher -->
-<div class="lang-switch-container" id="langSwitcher">
-  <div class="lang-switch-capsule">
-    <button type="button" class="lang-btn active" data-lang="en">EN</button>
-    <button type="button" class="lang-btn" data-lang="hi">हिंदी</button>
-    <button type="button" class="lang-btn" data-lang="hinglish">Hinglish</button>
-    <div class="lang-glider"></div>
-  </div>
-</div>
-
-<style>
-/* Modern Glassmorphic Language Switcher */
-.lang-switch-container {
-  position: fixed;
-  top: 18px;
-  right: 140px;
-  z-index: 9999;
-  font-family: inherit;
-}
-
-.lang-switch-capsule {
-  position: relative;
-  display: flex;
-  background: rgba(255, 255, 255, 0.88);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(215, 206, 193, 0.85);
-  border-radius: 100px;
-  padding: 3px;
-  box-shadow: 0 8px 24px rgba(35, 48, 39, 0.08);
-}
-
-.lang-btn {
-  position: relative;
-  z-index: 2;
-  border: none;
-  background: transparent;
-  color: #636d65;
-  font-size: 12px;
-  font-weight: 600;
-  padding: 6px 14px;
-  border-radius: 100px;
-  cursor: pointer;
-  transition: color 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-  outline: none;
-}
-
-.lang-btn:hover {
-  color: #1e2822;
-}
-
-.lang-btn.active {
-  color: #ffffff;
-}
-
-/* Sliding active pill indicator */
-.lang-glider {
-  position: absolute;
-  top: 3px;
-  bottom: 3px;
-  left: 3px;
-  border-radius: 100px;
-  background: linear-gradient(135deg, #2d4739 0%, #1e3328 100%);
-  box-shadow: 0 4px 12px rgba(45, 71, 57, 0.3);
-  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-  z-index: 1;
-}
-
-@media (max-width: 900px) {
-  .lang-switch-container {
-    top: auto;
-    bottom: 85px;
-    right: 20px;
-  }
-  .lang-btn {
-    padding: 5px 11px;
-    font-size: 11px;
-  }
-}
-</style>
 
 <script>
 (function() {
@@ -741,26 +661,25 @@ document.addEventListener("DOMContentLoaded", function() {
   };
 
   var originalTexts = new Map();
-
-  function storeOriginalText(node) {
-    if (!originalTexts.has(node)) {
-      originalTexts.set(node, node.textContent.trim());
-    }
-  }
+  var currentSelectedLang = localStorage.getItem('ff_lang') || 'en';
 
   function applyLanguage(lang) {
+    currentSelectedLang = lang;
+    localStorage.setItem('ff_lang', lang);
     var walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, null, false);
     var node;
     while (node = walker.nextNode()) {
       var parent = node.parentElement;
-      if (parent && (parent.tagName === 'SCRIPT' || parent.tagName === 'STYLE' || parent.closest('.lang-switch-container'))) {
+      if (parent && (parent.tagName === 'SCRIPT' || parent.tagName === 'STYLE' || parent.closest('#persistent-lang-container'))) {
         continue;
       }
 
       var text = node.textContent.trim();
       if (!text) continue;
 
-      storeOriginalText(node);
+      if (!originalTexts.has(node)) {
+        originalTexts.set(node, node.textContent.trim());
+      }
       var orig = originalTexts.get(node);
 
       if (lang === 'en') {
@@ -775,49 +694,64 @@ document.addEventListener("DOMContentLoaded", function() {
         }
       }
     }
-    localStorage.setItem('ff_lang', lang);
   }
 
-  function updateGlider(activeBtn) {
-    var glider = document.querySelector('.lang-glider');
-    if (glider && activeBtn) {
-      glider.style.width = activeBtn.offsetWidth + 'px';
-      glider.style.transform = 'translateX(' + activeBtn.offsetLeft + 'px)';
+  function ensureSwitcher() {
+    var existing = document.getElementById('persistent-lang-container');
+    if (!existing) {
+      var container = document.createElement('div');
+      container.id = 'persistent-lang-container';
+      container.innerHTML = 
+        '<div style="position:fixed;top:18px;right:145px;z-index:2147483647;display:flex;background:rgba(255,255,255,0.92);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid rgba(215,206,193,0.9);border-radius:100px;padding:3px;box-shadow:0 8px 24px rgba(0,0,0,0.08);">' +
+          '<button type="button" class="p-lang-btn" data-lang="en" style="border:none;background:transparent;font-size:12px;font-weight:600;padding:6px 14px;border-radius:100px;cursor:pointer;transition:all 0.25s ease;">EN</button>' +
+          '<button type="button" class="p-lang-btn" data-lang="hi" style="border:none;background:transparent;font-size:12px;font-weight:600;padding:6px 14px;border-radius:100px;cursor:pointer;transition:all 0.25s ease;">हिंदी</button>' +
+          '<button type="button" class="p-lang-btn" data-lang="hinglish" style="border:none;background:transparent;font-size:12px;font-weight:600;padding:6px 14px;border-radius:100px;cursor:pointer;transition:all 0.25s ease;">Hinglish</button>' +
+        '</div>';
+      
+      document.body.appendChild(container);
+
+      var btns = container.querySelectorAll('.p-lang-btn');
+      function updateActiveStyles() {
+        btns.forEach(function(b) {
+          if (b.getAttribute('data-lang') === currentSelectedLang) {
+            b.style.background = '#2d4739';
+            b.style.color = '#ffffff';
+            b.style.boxShadow = '0 3px 10px rgba(45,71,57,0.3)';
+          } else {
+            b.style.background = 'transparent';
+            b.style.color = '#556057';
+            b.style.boxShadow = 'none';
+          }
+        });
+      }
+
+      btns.forEach(function(btn) {
+        btn.addEventListener('click', function(e) {
+          e.stopPropagation();
+          currentSelectedLang = btn.getAttribute('data-lang');
+          updateActiveStyles();
+          applyLanguage(currentSelectedLang);
+        });
+      });
+
+      updateActiveStyles();
     }
   }
 
-  document.addEventListener('DOMContentLoaded', function() {
-    var buttons = document.querySelectorAll('.lang-btn');
-    var savedLang = localStorage.getItem('ff_lang') || 'en';
+  // Run on start and attach persistent watcher
+  setInterval(ensureSwitcher, 400);
 
-    buttons.forEach(function(btn) {
-      if (btn.getAttribute('data-lang') === savedLang) {
-        btn.classList.add('active');
-        updateGlider(btn);
-      } else {
-        btn.classList.remove('active');
-      }
-
-      btn.addEventListener('click', function() {
-        buttons.forEach(function(b) { b.classList.remove('active'); });
-        btn.classList.add('active');
-        updateGlider(btn);
-        var chosen = btn.getAttribute('data-lang');
-        applyLanguage(chosen);
-      });
-    });
-
-    // Run initial on saved language
-    var initialActive = document.querySelector('.lang-btn.active');
-    updateGlider(initialActive);
-    if (savedLang !== 'en') {
-      setTimeout(function() { applyLanguage(savedLang); }, 300);
-      setTimeout(function() { applyLanguage(savedLang); }, 800);
+  window.addEventListener('load', function() {
+    ensureSwitcher();
+    if (currentSelectedLang !== 'en') {
+      setTimeout(function() { applyLanguage(currentSelectedLang); }, 500);
+      setTimeout(function() { applyLanguage(currentSelectedLang); }, 1500);
     }
   });
 })();
 </script>
 </body></html>
+
 
 
 
