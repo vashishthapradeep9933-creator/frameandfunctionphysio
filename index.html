@@ -585,7 +585,237 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 
+<!-- Floating Animated Language Switcher -->
+<div class="lang-switch-container" id="langSwitcher">
+  <div class="lang-switch-capsule">
+    <button type="button" class="lang-btn active" data-lang="en">EN</button>
+    <button type="button" class="lang-btn" data-lang="hi">हिंदी</button>
+    <button type="button" class="lang-btn" data-lang="hinglish">Hinglish</button>
+    <div class="lang-glider"></div>
+  </div>
+</div>
+
+<style>
+/* Modern Glassmorphic Language Switcher */
+.lang-switch-container {
+  position: fixed;
+  top: 18px;
+  right: 140px;
+  z-index: 9999;
+  font-family: inherit;
+}
+
+.lang-switch-capsule {
+  position: relative;
+  display: flex;
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(215, 206, 193, 0.85);
+  border-radius: 100px;
+  padding: 3px;
+  box-shadow: 0 8px 24px rgba(35, 48, 39, 0.08);
+}
+
+.lang-btn {
+  position: relative;
+  z-index: 2;
+  border: none;
+  background: transparent;
+  color: #636d65;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 6px 14px;
+  border-radius: 100px;
+  cursor: pointer;
+  transition: color 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  outline: none;
+}
+
+.lang-btn:hover {
+  color: #1e2822;
+}
+
+.lang-btn.active {
+  color: #ffffff;
+}
+
+/* Sliding active pill indicator */
+.lang-glider {
+  position: absolute;
+  top: 3px;
+  bottom: 3px;
+  left: 3px;
+  border-radius: 100px;
+  background: linear-gradient(135deg, #2d4739 0%, #1e3328 100%);
+  box-shadow: 0 4px 12px rgba(45, 71, 57, 0.3);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 1;
+}
+
+@media (max-width: 900px) {
+  .lang-switch-container {
+    top: auto;
+    bottom: 85px;
+    right: 20px;
+  }
+  .lang-btn {
+    padding: 5px 11px;
+    font-size: 11px;
+  }
+}
+</style>
+
+<script>
+(function() {
+  var translations = {
+    hi: {
+      "Move freely, live without pain.": "बिना दर्द के जिएं, खुलकर आगे बढ़ें।",
+      "Sports, orthopaedic and neuro physiotherapy in Jaipur with one-to-one, hands-on care by Dr. Gargi Jaimini at our Panchyawala clinic.": "पांचयावाला, जयपुर में डॉ. गार्गी जैमिनी द्वारा स्पोर्ट्स, ऑर्थोपेडिक और न्यूरो फिजियोथेरेपी की व्यक्तिगत 1-ऑन-1 देखभाल।",
+      "Book on WhatsApp": "व्हाट्सएप पर बुक करें",
+      "Call now": "कॉल करें",
+      "Book now": "अपॉइंटमेंट बुक करें",
+      "Our approach": "हमारा तरीका",
+      "Our care": "हमारी सेवाएं",
+      "Visit us": "क्लीनिक आएं",
+      "Personal": "व्यक्तिगत",
+      "treatment plans": "इलाज योजना",
+      "Modern": "आधुनिक",
+      "techniques": "तकनीकें",
+      "One-to-one": "वन-ऑन-वन",
+      "attention": "पूरा ध्यान",
+      "PHYSIOTHERAPY & WELLNESS": "फिजियोथेरेपी और स्वास्थ्य",
+      "Sports Rehab": "स्पोर्ट्स रिहैब",
+      "Spine Care": "रीढ़ की देखभाल",
+      "Post-Op": "ऑपरेशन के बाद",
+      "Elderly Care": "बुजुर्गों की देखभाल",
+      "YOUR RECOVERY": "आपकी रिकवरी",
+      "Three simple steps": "तीन आसान कदम",
+      "Assessment": "शुरुआती जांच",
+      "We find the root cause of your pain.": "हम दर्द की असल जड़ का पता लगाते हैं।",
+      "Personalised plan": "व्यक्तिगत प्लान",
+      "Therapies chosen for your body and your goals.": "आपके शरीर और लक्ष्य के अनुसार सही थेरेपी।",
+      "Recovery and follow-up": "रिकवरी और फॉलो-अप",
+      "We stay with you until you are strong.": "पूरी ताकत लौटने तक हम आपके साथ हैं।",
+      "PHYSIOTHERAPY FAQ": "अक्सर पूछे जाने वाले सवाल",
+      "Your questions, answered.": "आपके सवाल, हमारे जवाब।",
+      "Need a quick word?": "सलाह चाहिए?",
+      "Chat on WhatsApp": "व्हाट्सएप पर बात करें"
+    },
+    hinglish: {
+      "Move freely, live without pain.": "Bina dard ke jiyo, freely move karo.",
+      "Sports, orthopaedic and neuro physiotherapy in Jaipur with one-to-one, hands-on care by Dr. Gargi Jaimini at our Panchyawala clinic.": "Panchyawala, Jaipur me Dr. Gargi Jaimini ke dwara sports, ortho aur neuro physiotherapy ki dedicated 1-on-1 care.",
+      "Book on WhatsApp": "WhatsApp pe Book Karein",
+      "Call now": "Abhi Call Karein",
+      "Book now": "Book Karein",
+      "Our approach": "Hamara Approach",
+      "Our care": "Hamari Care",
+      "Visit us": "Clinic Visit Karein",
+      "Personal": "Personalized",
+      "treatment plans": "Treatment Plans",
+      "Modern": "Modern",
+      "techniques": "Techniques",
+      "One-to-one": "One-on-One",
+      "attention": "Personal Attention",
+      "PHYSIOTHERAPY & WELLNESS": "PHYSIOTHERAPY & WELLNESS",
+      "Sports Rehab": "Sports Rehab",
+      "Spine Care": "Spine & Back Care",
+      "Post-Op": "Surgery ke baad Care",
+      "Elderly Care": "Senior Citizen Care",
+      "YOUR RECOVERY": "AAPKI RECOVERY",
+      "Three simple steps": "Teen Aasan Steps",
+      "Assessment": "Detailed Assessment",
+      "We find the root cause of your pain.": "Hum aapke dard ki root cause dhoondhte hain.",
+      "Personalised plan": "Personalized Plan",
+      "Therapies chosen for your body and your goals.": "Aapki body aur recovery goals ke hisaab se therapies.",
+      "Recovery and follow-up": "Recovery & Regular Follow-up",
+      "We stay with you until you are strong.": "Jab tak aap fully fit na ho jayein, hum aapke sath hain.",
+      "PHYSIOTHERAPY FAQ": "PHYSIOTHERAPY FAQ",
+      "Your questions, answered.": "Aapke sawaal, seedhe jawaab.",
+      "Need a quick word?": "Quick Baat Karni Hai?",
+      "Chat on WhatsApp": "WhatsApp pe Chat Karein"
+    }
+  };
+
+  var originalTexts = new Map();
+
+  function storeOriginalText(node) {
+    if (!originalTexts.has(node)) {
+      originalTexts.set(node, node.textContent.trim());
+    }
+  }
+
+  function applyLanguage(lang) {
+    var walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, null, false);
+    var node;
+    while (node = walker.nextNode()) {
+      var parent = node.parentElement;
+      if (parent && (parent.tagName === 'SCRIPT' || parent.tagName === 'STYLE' || parent.closest('.lang-switch-container'))) {
+        continue;
+      }
+
+      var text = node.textContent.trim();
+      if (!text) continue;
+
+      storeOriginalText(node);
+      var orig = originalTexts.get(node);
+
+      if (lang === 'en') {
+        if (orig && node.textContent.trim() !== orig) {
+          node.textContent = node.textContent.replace(node.textContent.trim(), orig);
+        }
+      } else if (translations[lang]) {
+        for (var key in translations[lang]) {
+          if (orig === key || orig.indexOf(key) !== -1) {
+            node.textContent = node.textContent.replace(key, translations[lang][key]);
+          }
+        }
+      }
+    }
+    localStorage.setItem('ff_lang', lang);
+  }
+
+  function updateGlider(activeBtn) {
+    var glider = document.querySelector('.lang-glider');
+    if (glider && activeBtn) {
+      glider.style.width = activeBtn.offsetWidth + 'px';
+      glider.style.transform = 'translateX(' + activeBtn.offsetLeft + 'px)';
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', function() {
+    var buttons = document.querySelectorAll('.lang-btn');
+    var savedLang = localStorage.getItem('ff_lang') || 'en';
+
+    buttons.forEach(function(btn) {
+      if (btn.getAttribute('data-lang') === savedLang) {
+        btn.classList.add('active');
+        updateGlider(btn);
+      } else {
+        btn.classList.remove('active');
+      }
+
+      btn.addEventListener('click', function() {
+        buttons.forEach(function(b) { b.classList.remove('active'); });
+        btn.classList.add('active');
+        updateGlider(btn);
+        var chosen = btn.getAttribute('data-lang');
+        applyLanguage(chosen);
+      });
+    });
+
+    // Run initial on saved language
+    var initialActive = document.querySelector('.lang-btn.active');
+    updateGlider(initialActive);
+    if (savedLang !== 'en') {
+      setTimeout(function() { applyLanguage(savedLang); }, 300);
+      setTimeout(function() { applyLanguage(savedLang); }, 800);
+    }
+  });
+})();
+</script>
 </body></html>
+
 
 
 
