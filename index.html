@@ -589,125 +589,251 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 
+
 <script>
 (function() {
-  var translations = {
+  var dict = {
     hi: {
+      "Frame & Function": "फ्रेम एंड फंक्शन",
+      "Physiotherapy Clinic": "फिजियोथेरेपी क्लीनिक",
+      "Our approach": "हमारा दृष्टिकोण",
+      "Our care": "हमारी सेवाएं",
+      "Visit us": "क्लीनिक आएं",
+      "Book now": "अपॉइंटमेंट बुक करें",
+      "PHYSIOTHERAPY & WELLNESS": "फिजियोथेरेपी और वेलनेस",
       "Move freely, live without pain.": "बिना दर्द के जिएं, खुलकर आगे बढ़ें।",
       "Sports, orthopaedic and neuro physiotherapy in Jaipur with one-to-one, hands-on care by Dr. Gargi Jaimini at our Panchyawala clinic.": "पांचयावाला, जयपुर में डॉ. गार्गी जैमिनी द्वारा स्पोर्ट्स, ऑर्थोपेडिक और न्यूरो फिजियोथेरेपी की व्यक्तिगत 1-ऑन-1 देखभाल।",
       "Book on WhatsApp": "व्हाट्सएप पर बुक करें",
       "Call now": "कॉल करें",
-      "Book now": "अपॉइंटमेंट बुक करें",
-      "Our approach": "हमारा तरीका",
-      "Our care": "हमारी सेवाएं",
-      "Visit us": "क्लीनिक आएं",
       "Personal": "व्यक्तिगत",
       "treatment plans": "इलाज योजना",
       "Modern": "आधुनिक",
       "techniques": "तकनीकें",
       "One-to-one": "वन-ऑन-वन",
       "attention": "पूरा ध्यान",
-      "PHYSIOTHERAPY & WELLNESS": "फिजियोथेरेपी और स्वास्थ्य",
+      "A little care. A little progress. Every day.": "हर दिन थोड़ी देखभाल, हर दिन नया सुधार।",
+      "Physiotherapist": "फिजियोथेरेपिस्ट",
+      "Dr. Gargi Jaimini": "डॉ. गार्गी जैमिनी",
+      "1-on-1 care": "1-ऑन-1 देखभाल",
       "Sports Rehab": "स्पोर्ट्स रिहैब",
       "Spine Care": "रीढ़ की देखभाल",
       "Post-Op": "ऑपरेशन के बाद",
       "Elderly Care": "बुजुर्गों की देखभाल",
+      "Return-to-Sport Program": "स्पोर्ट्स रिकवरी प्रोग्राम",
+      "Ligament injuries, sprains & strains with progressive return-to-play training.": "लिगामेंट की चोट, मोच और खिंचाव के बाद खेल में सुरक्षित वापसी की ट्रेनिंग।",
+      "Knee & Ankle Recovery": "घुटना और टखना रिकवरी",
+      "Targeted rehab for joint stability, mobility and strength.": "जोड़ों की मजबूती, स्थिरता और गतिशीलता के लिए लक्षित रिहैब।",
+      "Spine & Posture Alignment": "रीढ़ और पोस्चर सुधार",
+      "Cervical, thoracic & lumbar care for desk workers and active individuals.": "गर्दन और कमर दर्द से जूझ रहे लोगों के लिए विशेष देखभाल।",
+      "Sciatica & Nerve Relief": "साइटिका और नसों का दर्द",
+      "Decompression and gentle mobilisations to reduce radiating leg pain.": "पैरों में उतरने वाले नसों के खिंचाव और दर्द से राहत।",
+      "Post-Surgery Mobility": "सर्जरी के बाद रिकवरी",
+      "Structured rehabilitation following ACL, meniscus or fracture surgery.": "एसीएल, मेनिस्कस या फ्रैक्चर सर्जरी के बाद सुरक्षित पुनर्वास।",
+      "Joint Replacement Rehab": "जॉइंट रिप्लेसमेंट रिहैब",
+      "Restoring walking confidence and range after knee or hip replacement.": "घुटना या कूल्हा बदलने के बाद चलने-फिरने का भरोसा वापस पाना।",
+      "Balance & Fall Prevention": "संतुलन और मजबूती",
+      "Gentle balance training, gait work and joint-friendly strengthening.": "बुजुर्गों के लिए सुरक्षित संतुलन और चलने की क्षमता बढ़ाने वाले व्यायाम।",
+      "Arthritis Management": "गठिया और जोड़ों का दर्द",
+      "Easing morning stiffness and preserving independence with low-impact care.": "सुबह की जकड़न दूर करने और जोड़ों को सक्रिय रखने का आसान इलाज।",
+      "Final plan and charges are confirmed after your assessment.": "शुरुआती जांच के बाद ही अंतिम योजना और शुल्क तय किया जाता है।",
+      "INSIDE THE CLINIC": "क्लीनिक के अंदर",
+      "A calm space for your recovery": "आपकी सेहत और रिकवरी के लिए एक शांत वातावरण",
+      "Every session is held in a clean, private setting designed to put you at ease.": "हर सेशन एक स्वच्छ और सुरक्षित वातावरण में पूरे ध्यान के साथ होता है।",
+      "Treatment area": "इलाज का कमरा",
+      "Equipment": "आधुनिक उपकरण",
+      "Exercise area": "व्यायाम क्षेत्र",
+      "Clinic front": "क्लीनिक का मुख्य द्वार",
       "YOUR RECOVERY": "आपकी रिकवरी",
       "Three simple steps": "तीन आसान कदम",
       "Assessment": "शुरुआती जांच",
-      "We find the root cause of your pain.": "हम दर्द की असल जड़ का पता लगाते हैं।",
+      "We find the root cause of your pain.": "हम दर्द की असली जड़ का पता लगाते हैं।",
       "Personalised plan": "व्यक्तिगत प्लान",
-      "Therapies chosen for your body and your goals.": "आपके शरीर और लक्ष्य के अनुसार सही थेरेपी।",
-      "Recovery and follow-up": "रिकवरी और फॉलो-अप",
+      "Therapies chosen for your body and your goals.": "आपके शरीर और लक्ष्यों के अनुसार सही थेरेपी का चयन।",
+      "Recovery and follow-up": "सुधार और फॉलो-अप",
       "We stay with you until you are strong.": "पूरी ताकत लौटने तक हम आपके साथ हैं।",
+      "WHY CHOOSE US": "हमें क्यों चुनें",
+      "Thoughtful care.": "जिम्मेदारी भरी देखभाल।",
+      "At every step.": "हर एक कदम पर।",
+      "Personal attention from the doctor": "डॉक्टर द्वारा पूरा व्यक्तिगत ध्यान",
+      "Modern techniques, tailored to you": "आपके अनुकूल आधुनिक तकनीकें",
+      "A clean, hygienic clinic": "स्वच्छ और सुरक्षित क्लीनिक",
+      "Flexible timings: 10am – 8pm": "सुविधाजनक समय: सुबह 10 से रात 8 बजे",
+      "PEOPLE WHO CARE": "आपकी सेवा में समर्पित",
+      "Meet the team": "हमारी टीम से मिलें",
+      "Founder and Physiotherapist": "संस्थापक और मुख्य फिजियोथेरेपिस्ट",
+      "Consultant Physiotherapist": "कंसल्टेंट फिजियोथेरेपिस्ट",
+      "Joining Soon": "जल्द आ रहे हैं",
+      "PATIENT VOICES": "मरीजों की राय",
+      "A few words of trust": "भरोसे के कुछ शब्द",
       "PHYSIOTHERAPY FAQ": "अक्सर पूछे जाने वाले सवाल",
       "Your questions, answered.": "आपके सवाल, हमारे जवाब।",
       "Need a quick word?": "सलाह चाहिए?",
-      "Chat on WhatsApp": "व्हाट्सएप पर बात करें"
+      "Chat on WhatsApp": "व्हाट्सएप पर बात करें",
+      "About": "के बारे में",
+      "Therapies": "थेरेपी",
+      "FAQ": "सवाल-जवाब",
+      "Cookie settings": "कुकी सेटिंग्स",
+      "Who is the lead physiotherapist at Frame & Function?": "फ्रेम एंड फंक्शन में मुख्य फिजियोथेरेपिस्ट कौन हैं?",
+      "What conditions and therapies are offered?": "यहाँ किन बीमारियों और समस्याओं का इलाज होता है?",
+      "Do I need a doctor's prescription before visiting?": "क्या क्लीनिक आने से पहले डॉक्टर के पर्चे की जरूरत है?",
+      "Where is the clinic located and what are the timings?": "क्लीनिक कहाँ स्थित है और समय क्या है?",
+      "How many sessions will I need, and is treatment painful?": "मुझे कितने सेशन की जरूरत होगी और क्या इलाज में दर्द होता है?",
+      "How do I book an appointment with Dr. Gargi?": "डॉ. गार्गी के साथ अपॉइंटमेंट कैसे बुक करें?"
     },
     hinglish: {
+      "Frame & Function": "Frame & Function",
+      "Physiotherapy Clinic": "Physiotherapy Clinic",
+      "Our approach": "Hamara Approach",
+      "Our care": "Hamari Services",
+      "Visit us": "Clinic Aayein",
+      "Book now": "Book Karein",
+      "PHYSIOTHERAPY & WELLNESS": "PHYSIOTHERAPY & WELLNESS",
       "Move freely, live without pain.": "Bina dard ke jiyo, freely move karo.",
       "Sports, orthopaedic and neuro physiotherapy in Jaipur with one-to-one, hands-on care by Dr. Gargi Jaimini at our Panchyawala clinic.": "Panchyawala, Jaipur me Dr. Gargi Jaimini ke dwara sports, ortho aur neuro physiotherapy ki dedicated 1-on-1 care.",
       "Book on WhatsApp": "WhatsApp pe Book Karein",
       "Call now": "Abhi Call Karein",
-      "Book now": "Book Karein",
-      "Our approach": "Hamara Approach",
-      "Our care": "Hamari Care",
-      "Visit us": "Clinic Visit Karein",
       "Personal": "Personalized",
       "treatment plans": "Treatment Plans",
       "Modern": "Modern",
       "techniques": "Techniques",
       "One-to-one": "One-on-One",
       "attention": "Personal Attention",
-      "PHYSIOTHERAPY & WELLNESS": "PHYSIOTHERAPY & WELLNESS",
+      "A little care. A little progress. Every day.": "Thodi care. Thoda progress. Har roz.",
+      "Physiotherapist": "Physiotherapist",
+      "Dr. Gargi Jaimini": "Dr. Gargi Jaimini",
+      "1-on-1 care": "1-on-1 Care",
       "Sports Rehab": "Sports Rehab",
       "Spine Care": "Spine & Back Care",
       "Post-Op": "Surgery ke baad Care",
       "Elderly Care": "Senior Citizen Care",
+      "Return-to-Sport Program": "Return-to-Sport Program",
+      "Ligament injuries, sprains & strains with progressive return-to-play training.": "Ligament injury, sprain aur strain ke baad safely khel me wapas aane ki training.",
+      "Knee & Ankle Recovery": "Knee & Ankle Recovery",
+      "Targeted rehab for joint stability, mobility and strength.": "Joint stability aur strength ke liye targeted rehabilitation.",
+      "Spine & Posture Alignment": "Spine & Posture Care",
+      "Cervical, thoracic & lumbar care for desk workers and active individuals.": "Neck aur back pain se pareshan desk workers ke liye expert relief.",
+      "Sciatica & Nerve Relief": "Sciatica & Nerve Pain",
+      "Decompression and gentle mobilisations to reduce radiating leg pain.": "Tango me hone wale naso ke dard aur khinchav se araam.",
+      "Post-Surgery Mobility": "Post-Surgery Recovery",
+      "Structured rehabilitation following ACL, meniscus or fracture surgery.": "ACL ya fracture surgery ke baad structured rehabilitation.",
+      "Joint Replacement Rehab": "Joint Replacement Rehab",
+      "Restoring walking confidence and range after knee or hip replacement.": "Knee replacement ke baad normal chalne-phirne ka confidence wapas lana.",
+      "Balance & Fall Prevention": "Balance & Strength",
+      "Gentle balance training, gait work and joint-friendly strengthening.": "Buzurgo ke liye safe balance training aur gait exercises.",
+      "Arthritis Management": "Joint Pain & Arthritis",
+      "Easing morning stiffness and preserving independence with low-impact care.": "Morning stiffness kam karne aur jodo ko active rakhne ki therapy.",
+      "Final plan and charges are confirmed after your assessment.": "Aapke initial assessment ke baad hi final charges aur plan decide hota hai.",
+      "INSIDE THE CLINIC": "CLINIC KE ANDAR",
+      "A calm space for your recovery": "Recovery ke liye ek shaant aur clean environment",
+      "Every session is held in a clean, private setting designed to put you at ease.": "Har session ek saaf-suthre aur private setting me pooray attention ke sath hota hai.",
+      "Treatment area": "Treatment Area",
+      "Equipment": "Modern Equipment",
+      "Exercise area": "Exercise Zone",
+      "Clinic front": "Clinic Front",
       "YOUR RECOVERY": "AAPKI RECOVERY",
       "Three simple steps": "Teen Aasan Steps",
       "Assessment": "Detailed Assessment",
       "We find the root cause of your pain.": "Hum aapke dard ki root cause dhoondhte hain.",
       "Personalised plan": "Personalized Plan",
-      "Therapies chosen for your body and your goals.": "Aapki body aur recovery goals ke hisaab se therapies.",
-      "Recovery and follow-up": "Recovery & Regular Follow-up",
+      "Therapies chosen for your body and your goals.": "Aapki body aur recovery goals ke according therapies ka selection.",
+      "Recovery and follow-up": "Recovery & Follow-up",
       "We stay with you until you are strong.": "Jab tak aap fully fit na ho jayein, hum aapke sath hain.",
+      "WHY CHOOSE US": "HAMARE SAATH KYUN",
+      "Thoughtful care.": "Dedicated Care.",
+      "At every step.": "Har ek step par.",
+      "Personal attention from the doctor": "Doctor ka poora personal attention",
+      "Modern techniques, tailored to you": "Aapke liye tailored modern techniques",
+      "A clean, hygienic clinic": "Clean & hygienic clinic",
+      "Flexible timings: 10am – 8pm": "Flexible timings: 10am se 8pm",
+      "PEOPLE WHO CARE": "DEDICATED TEAM",
+      "Meet the team": "Team se Miliye",
+      "Founder and Physiotherapist": "Founder & Physiotherapist",
+      "Consultant Physiotherapist": "Consultant Physiotherapist",
+      "Joining Soon": "Jald Aane Wale Hain",
+      "PATIENT VOICES": "PATIENT REVIEWS",
+      "A few words of trust": "Mardon ka Bharosa",
       "PHYSIOTHERAPY FAQ": "PHYSIOTHERAPY FAQ",
       "Your questions, answered.": "Aapke sawaal, seedhe jawaab.",
       "Need a quick word?": "Quick Baat Karni Hai?",
-      "Chat on WhatsApp": "WhatsApp pe Chat Karein"
+      "Chat on WhatsApp": "WhatsApp pe Chat Karein",
+      "About": "About",
+      "Therapies": "Therapies",
+      "FAQ": "FAQ",
+      "Cookie settings": "Cookie Settings",
+      "Who is the lead physiotherapist at Frame & Function?": "Frame & Function me chief physiotherapist kaun hain?",
+      "What conditions and therapies are offered?": "Clinic me kaun-kaun se treatments aur therapies milti hain?",
+      "Do I need a doctor's prescription before visiting?": "Kya aane se pehle doctor ke prescription ki zaroorat hai?",
+      "Where is the clinic located and what are the timings?": "Clinic kahan par hai aur clinic ke timings kya hain?",
+      "How many sessions will I need, and is treatment painful?": "Kitne sessions lene padenge aur kya treatment me dard hota hai?",
+      "How do I book an appointment with Dr. Gargi?": "Dr. Gargi ke sath appointment kaise book karein?"
     }
   };
 
-  var originalTexts = new Map();
+  var originalNodes = [];
   var currentSelectedLang = localStorage.getItem('ff_lang') || 'en';
 
-  function applyLanguage(lang) {
-    currentSelectedLang = lang;
-    localStorage.setItem('ff_lang', lang);
+  function scanTextNodes() {
+    originalNodes = [];
     var walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, null, false);
     var node;
     while (node = walker.nextNode()) {
-      var parent = node.parentElement;
-      if (parent && (parent.tagName === 'SCRIPT' || parent.tagName === 'STYLE' || parent.closest('#persistent-lang-container'))) {
+      var p = node.parentElement;
+      if (!p || p.tagName === 'SCRIPT' || p.tagName === 'STYLE' || p.closest('#persistent-lang-container')) {
         continue;
       }
-
-      var text = node.textContent.trim();
-      if (!text) continue;
-
-      if (!originalTexts.has(node)) {
-        originalTexts.set(node, node.textContent.trim());
-      }
-      var orig = originalTexts.get(node);
-
-      if (lang === 'en') {
-        if (orig && node.textContent.trim() !== orig) {
-          node.textContent = node.textContent.replace(node.textContent.trim(), orig);
-        }
-      } else if (translations[lang]) {
-        for (var key in translations[lang]) {
-          if (orig === key || orig.indexOf(key) !== -1) {
-            node.textContent = node.textContent.replace(key, translations[lang][key]);
-          }
-        }
+      var t = node.textContent.trim();
+      if (t) {
+        originalNodes.push({ node: node, orig: t });
       }
     }
   }
 
+  function applyLanguage(lang) {
+    currentSelectedLang = lang;
+    localStorage.setItem('ff_lang', lang);
+    scanTextNodes();
+
+    originalNodes.forEach(function(item) {
+      var node = item.node;
+      var orig = item.orig;
+
+      if (lang === 'en') {
+        if (node.textContent.trim() !== orig) {
+          node.textContent = node.textContent.replace(node.textContent.trim(), orig);
+        }
+      } else if (dict[lang]) {
+        for (var phrase in dict[lang]) {
+          if (orig === phrase || orig.indexOf(phrase) !== -1) {
+            node.textContent = node.textContent.replace(phrase, dict[lang][phrase]);
+          }
+        }
+      }
+    });
+  }
+
+  // Floating Non-Overlapping Position
   function ensureSwitcher() {
     var existing = document.getElementById('persistent-lang-container');
     if (!existing) {
       var container = document.createElement('div');
       container.id = 'persistent-lang-container';
       container.innerHTML = 
-        '<div style="position:fixed;top:18px;right:145px;z-index:2147483647;display:flex;background:rgba(255,255,255,0.92);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid rgba(215,206,193,0.9);border-radius:100px;padding:3px;box-shadow:0 8px 24px rgba(0,0,0,0.08);">' +
-          '<button type="button" class="p-lang-btn" data-lang="en" style="border:none;background:transparent;font-size:12px;font-weight:600;padding:6px 14px;border-radius:100px;cursor:pointer;transition:all 0.25s ease;">EN</button>' +
-          '<button type="button" class="p-lang-btn" data-lang="hi" style="border:none;background:transparent;font-size:12px;font-weight:600;padding:6px 14px;border-radius:100px;cursor:pointer;transition:all 0.25s ease;">हिंदी</button>' +
-          '<button type="button" class="p-lang-btn" data-lang="hinglish" style="border:none;background:transparent;font-size:12px;font-weight:600;padding:6px 14px;border-radius:100px;cursor:pointer;transition:all 0.25s ease;">Hinglish</button>' +
-        '</div>';
-      
+        '<div class="lang-pills">' +
+          '<button type="button" class="p-lang-btn" data-lang="en">EN</button>' +
+          '<button type="button" class="p-lang-btn" data-lang="hi">हिंदी</button>' +
+          '<button type="button" class="p-lang-btn" data-lang="hinglish">Hinglish</button>' +
+        '</div>' +
+        '<style>' +
+          '#persistent-lang-container { position: fixed; bottom: 30px; left: 30px; z-index: 99999; }' +
+          '.lang-pills { display: flex; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(20px); border: 1.5px solid rgba(45, 71, 57, 0.25); border-radius: 100px; padding: 4px; box-shadow: 0 10px 30px rgba(0,0,0,0.12); }' +
+          '.p-lang-btn { border: none; background: transparent; font-size: 13px; font-weight: 700; padding: 7px 16px; border-radius: 100px; cursor: pointer; transition: all 0.25s ease; color: #49544c; outline: none; }' +
+          '.p-lang-btn:hover { color: #1e2822; }' +
+          '@media (max-width: 900px) {' +
+            '#persistent-lang-container { bottom: 85px; left: 20px; }' +
+            '.p-lang-btn { font-size: 11px; padding: 5px 12px; }' +
+          '}' +
+        '</style>';
+
       document.body.appendChild(container);
 
       var btns = container.querySelectorAll('.p-lang-btn');
@@ -716,10 +842,10 @@ document.addEventListener("DOMContentLoaded", function() {
           if (b.getAttribute('data-lang') === currentSelectedLang) {
             b.style.background = '#2d4739';
             b.style.color = '#ffffff';
-            b.style.boxShadow = '0 3px 10px rgba(45,71,57,0.3)';
+            b.style.boxShadow = '0 3px 12px rgba(45,71,57,0.35)';
           } else {
             b.style.background = 'transparent';
-            b.style.color = '#556057';
+            b.style.color = '#49544c';
             b.style.boxShadow = 'none';
           }
         });
@@ -738,19 +864,19 @@ document.addEventListener("DOMContentLoaded", function() {
     }
   }
 
-  // Run on start and attach persistent watcher
-  setInterval(ensureSwitcher, 400);
+  setInterval(ensureSwitcher, 500);
 
   window.addEventListener('load', function() {
     ensureSwitcher();
     if (currentSelectedLang !== 'en') {
-      setTimeout(function() { applyLanguage(currentSelectedLang); }, 500);
-      setTimeout(function() { applyLanguage(currentSelectedLang); }, 1500);
+      setTimeout(function() { applyLanguage(currentSelectedLang); }, 400);
+      setTimeout(function() { applyLanguage(currentSelectedLang); }, 1200);
     }
   });
 })();
 </script>
 </body></html>
+
 
 
 
