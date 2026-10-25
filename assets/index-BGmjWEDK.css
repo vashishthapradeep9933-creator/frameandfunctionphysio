@@ -908,3 +908,93 @@ article:hover, .card:hover, .step:hover {
     gap: 16px !important;
   }
 }
+
+
+/* =========================================================================
+   GENEROUS SECTION SPACING & CLEAN TYPOGRAPHY (DE-CLUTTER)
+   ========================================================================= */
+
+/* Proper breathing room between sections */
+.section {
+  padding: 100px 0 !important;
+}
+
+/* Hero Section Spacing */
+.hero, section:first-of-type {
+  padding-bottom: 70px !important;
+  margin-bottom: 30px !important;
+}
+
+/* Sub-headings and eyebrow spacing */
+.eyebrow {
+  margin-bottom: 18px !important;
+}
+
+h2 {
+  margin-bottom: 24px !important;
+}
+
+/* Top utility bar alignment fix */
+.top-notice-bar {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  flex-wrap: nowrap !important;
+}
+.notice-left {
+  display: flex !important;
+  align-items: center !important;
+  gap: 16px !important;
+}
+.notice-left span {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+}
+
+/* Stats Section Spacing */
+.stats-grid {
+  padding: 40px 0 !important;
+  gap: 40px !important;
+}
+.stats-grid .num {
+  font-size: clamp(38px, 4.5vw, 54px) !important;
+  font-weight: 800 !important;
+  color: #faf7f2 !important;
+  display: flex !important;
+  align-items: baseline !important;
+  justify-content: center !important;
+  margin-bottom: 10px !important;
+}
+.stats-grid .num em {
+  color: #c0633b !important;
+  font-style: normal !important;
+}
+.stats-grid small {
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.1em !important;
+  color: rgba(250, 247, 242, 0.75) !important;
+}
+
+/* Reviews de-clutter */
+.review-slider blockquote {
+  padding: 32px 28px !important;
+  line-height: 1.7 !important;
+}
+.review-slider blockquote p {
+  font-size: 15px !important;
+  color: #3b473e !important;
+  margin-bottom: 20px !important;
+}
+.review-slider blockquote footer {
+  font-weight: 700 !important;
+  color: #17332b !important;
+}
+.review-slider blockquote footer small {
+  display: block !important;
+  font-weight: 500 !important;
+  color: #636d65 !important;
+  margin-top: 4px !important;
+}
