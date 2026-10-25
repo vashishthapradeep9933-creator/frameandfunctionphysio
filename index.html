@@ -602,7 +602,89 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 
+<!-- Bluejay-style Organic Ambient Blobs -->
+<div class="agency-blob-1"></div>
+<div class="agency-blob-2"></div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  var heroSection = document.querySelector(".hero") || document.querySelector("section");
+  if (heroSection && !document.querySelector(".marquee-band")) {
+    // 1. Bluejay Infinite Scrolling Marquee Ribbon
+    var marquee = document.createElement("div");
+    marquee.className = "marquee-band";
+    marquee.innerHTML = 
+      '<div class="marquee-track">' +
+        '<div class="marquee-item"><span class="marquee-dot"></span> SPORTS INJURY REHABILITATION</div>' +
+        '<div class="marquee-item"><span class="marquee-dot"></span> 1-ON-1 DOCTOR CARE</div>' +
+        '<div class="marquee-item"><span class="marquee-dot"></span> ADVANCED MANUAL THERAPY</div>' +
+        '<div class="marquee-item"><span class="marquee-dot"></span> SPINE & POSTURE ALIGNMENT</div>' +
+        '<div class="marquee-item"><span class="marquee-dot"></span> IASTM & CUPPING THERAPY</div>' +
+        '<div class="marquee-item"><span class="marquee-dot"></span> POST-SURGERY MOBILITY</div>' +
+        '<div class="marquee-item"><span class="marquee-dot"></span> PANCHYAWALA & VAISHALI NAGAR, JAIPUR</div>' +
+        '<div class="marquee-item"><span class="marquee-dot"></span> SPORTS INJURY REHABILITATION</div>' +
+        '<div class="marquee-item"><span class="marquee-dot"></span> 1-ON-1 DOCTOR CARE</div>' +
+        '<div class="marquee-item"><span class="marquee-dot"></span> ADVANCED MANUAL THERAPY</div>' +
+        '<div class="marquee-item"><span class="marquee-dot"></span> SPINE & POSTURE ALIGNMENT</div>' +
+        '<div class="marquee-item"><span class="marquee-dot"></span> IASTM & CUPPING THERAPY</div>' +
+        '<div class="marquee-item"><span class="marquee-dot"></span> POST-SURGERY MOBILITY</div>' +
+        '<div class="marquee-item"><span class="marquee-dot"></span> PANCHYAWALA & VAISHALI NAGAR, JAIPUR</div>' +
+      '</div>';
+    
+    heroSection.insertAdjacentElement("afterend", marquee);
+
+    // 2. Animated Social Proof Counter Cards
+    var statsBanner = document.createElement("div");
+    statsBanner.className = "stats-banner";
+    statsBanner.innerHTML = 
+      '<div class="stat-box glow-card">' +
+        '<div class="stat-number"><span class="counter" data-target="1500">0</span><span>+</span></div>' +
+        '<div class="stat-label">Happy Patients Treated</div>' +
+      '</div>' +
+      '<div class="stat-box glow-card">' +
+        '<div class="stat-number"><span class="counter" data-target="98">0</span><span>%</span></div>' +
+        '<div class="stat-label">Pain Relief Success</div>' +
+      '</div>' +
+      '<div class="stat-box glow-card">' +
+        '<div class="stat-number"><span class="counter" data-target="100">0</span><span>%</span></div>' +
+        '<div class="stat-label">One-to-One Attention</div>' +
+      '</div>' +
+      '<div class="stat-box glow-card">' +
+        '<div class="stat-number"><span class="counter" data-target="5">0</span><span>.0★</span></div>' +
+        '<div class="stat-label">Google Review Rating</div>' +
+      '</div>';
+
+    marquee.insertAdjacentElement("afterend", statsBanner);
+
+    // 3. Counter Animation on Scroll
+    var counted = false;
+    var observer = new IntersectionObserver(function(entries) {
+      if (entries[0].isIntersecting && !counted) {
+        counted = true;
+        document.querySelectorAll(".counter").forEach(function(counter) {
+          var target = +counter.getAttribute("data-target");
+          var duration = 1800;
+          var step = target / (duration / 25);
+          var current = 0;
+          var timer = setInterval(function() {
+            current += step;
+            if (current >= target) {
+              counter.textContent = target;
+              clearInterval(timer);
+            } else {
+              counter.textContent = Math.floor(current);
+            }
+          }, 25);
+        });
+      }
+    }, { threshold: 0.3 });
+
+    observer.observe(statsBanner);
+  }
+});
+</script>
 </body></html>
+
 
 
 

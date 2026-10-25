@@ -386,3 +386,213 @@ blockquote:hover {
 
 
 
+
+
+/* =========================================================================
+   BLUEJAY-INSPIRED ULTRA-PREMIUM AGENCY ANIMATIONS & LUXURY AESTHETICS
+   ========================================================================= */
+
+:root {
+  --agency-primary: #17332b;
+  --agency-primary-light: #234d41;
+  --agency-accent: #c0633b;
+  --agency-gold: #d4a373;
+  --agency-bg: #faf7f2;
+  --agency-card: #ffffff;
+  --agency-glass: rgba(255, 255, 255, 0.75);
+}
+
+/* 1. Infinite Ticker / Marquee Band */
+.marquee-band {
+  width: 100%;
+  overflow: hidden;
+  background: linear-gradient(135deg, #17332b 0%, #234d41 100%);
+  color: #faf7f2;
+  padding: 16px 0;
+  white-space: nowrap;
+  box-shadow: 0 10px 25px rgba(23, 51, 43, 0.15);
+  position: relative;
+  z-index: 10;
+}
+.marquee-track {
+  display: inline-flex;
+  gap: 40px;
+  animation: agencyMarquee 26s linear infinite;
+  will-change: transform;
+}
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+.marquee-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 13.5px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.marquee-dot {
+  width: 7px;
+  height: 7px;
+  background: #d4a373;
+  border-radius: 50%;
+  display: inline-block;
+  box-shadow: 0 0 8px #d4a373;
+}
+@keyframes agencyMarquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* 2. Animated Stats Metric Counters Bar */
+.stats-banner {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  max-width: 1200px;
+  margin: -35px auto 40px;
+  padding: 0 24px;
+  position: relative;
+  z-index: 20;
+}
+.stat-box {
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(215, 206, 193, 0.65);
+  border-radius: 20px;
+  padding: 24px 20px;
+  text-align: center;
+  box-shadow: 0 15px 35px rgba(23, 51, 43, 0.05);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+}
+.stat-box:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 22px 45px rgba(23, 51, 43, 0.1);
+  border-color: rgba(192, 99, 59, 0.4);
+}
+.stat-number {
+  font-size: clamp(32px, 3.5vw, 42px);
+  font-weight: 800;
+  color: #17332b;
+  line-height: 1;
+  margin-bottom: 6px;
+  font-family: inherit;
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+}
+.stat-number span {
+  color: #c0633b;
+}
+.stat-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: #636d65;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+/* 3. Glowing Gradient Animated Border on Featured Cards */
+.glow-card {
+  position: relative;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+}
+.glow-card::before {
+  content: "";
+  position: absolute;
+  inset: -1.5px;
+  border-radius: inherit;
+  padding: 1.5px;
+  background: linear-gradient(135deg, rgba(192, 99, 59, 0.5), transparent 40%, rgba(23, 51, 43, 0.6));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  opacity: 0.6;
+  transition: opacity 0.4s ease;
+}
+.glow-card:hover::before {
+  opacity: 1;
+  background: linear-gradient(135deg, #c0633b, #d4a373, #17332b);
+}
+
+/* 4. Luxury Shimmer Effect on CTA Buttons */
+a.button, button.button, .wa-btn {
+  position: relative;
+  overflow: hidden;
+}
+a.button::after, button.button::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(60deg, transparent 30%, rgba(255, 255, 255, 0.25) 50%, transparent 70%);
+  transform: rotate(25deg) translateY(-100%);
+  animation: agencyShimmer 5s infinite;
+}
+@keyframes agencyShimmer {
+  0% { transform: rotate(25deg) translateY(-120%); }
+  25% { transform: rotate(25deg) translateY(120%); }
+  100% { transform: rotate(25deg) translateY(120%); }
+}
+
+/* 5. Bluejay-style Organic Floating Shapes in Hero */
+.agency-blob-1 {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(192, 99, 59, 0.14) 0%, rgba(212, 163, 115, 0.08) 50%, transparent 70%);
+  filter: blur(50px);
+  border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+  animation: agencyMorph 12s ease-in-out infinite alternate;
+  pointer-events: none;
+  z-index: 0;
+  top: -50px;
+  right: -50px;
+}
+.agency-blob-2 {
+  position: absolute;
+  width: 450px;
+  height: 450px;
+  background: radial-gradient(circle, rgba(23, 51, 43, 0.12) 0%, rgba(35, 77, 65, 0.05) 50%, transparent 70%);
+  filter: blur(55px);
+  border-radius: 60% 40% 30% 70% / 50% 30% 70% 60%;
+  animation: agencyMorph 16s ease-in-out infinite alternate-reverse;
+  pointer-events: none;
+  z-index: 0;
+  bottom: 50px;
+  left: -80px;
+}
+@keyframes agencyMorph {
+  0% { border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%; transform: scale(1) translate(0, 0); }
+  50% { border-radius: 60% 40% 30% 70% / 50% 60% 40% 60%; transform: scale(1.1) translate(20px, -20px); }
+  100% { border-radius: 50% 50% 40% 60% / 40% 60% 50% 50%; transform: scale(0.95) translate(-15px, 15px); }
+}
+
+/* 6. High-End Card Tilt & Lift on Hover */
+article, .card, .step, .why, .review-slider blockquote, details {
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease !important;
+}
+article:hover, .card:hover, .step:hover {
+  transform: translateY(-6px) !important;
+  box-shadow: 0 20px 40px rgba(23, 51, 43, 0.08) !important;
+}
+
+@media (max-width: 900px) {
+  .stats-banner {
+    grid-template-columns: repeat(2, 1fr);
+    margin: 20px auto 30px;
+    gap: 14px;
+    padding: 0 16px;
+  }
+  .stat-box {
+    padding: 18px 14px;
+  }
+  .stat-number {
+    font-size: 28px;
+  }
+}
