@@ -844,3 +844,67 @@ article:hover, .card:hover, .step:hover {
     gap: 16px;
   }
 }
+
+
+/* =========================================================================
+   FORCE ALL CONTENT TO BE FULLY VISIBLE & PROPERLY SPACED (NO BLANK HOLES)
+   ========================================================================= */
+
+/* Ensure all stats, service grids, cards, and reviews are 100% visible */
+.stat, .service-grid, .review-slider blockquote, article, .team-card, figure, .reveal {
+  opacity: 1 !important;
+  transform: none !important;
+  visibility: visible !important;
+  display: block;
+}
+
+.service-grid {
+  display: grid !important;
+}
+
+.stats-grid {
+  display: grid !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+/* Review Slider Clean Display */
+.review-slider {
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr) !important;
+  gap: 24px !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+.review-slider blockquote {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+  opacity: 1 !important;
+  transform: none !important;
+  visibility: visible !important;
+}
+
+/* Hide defunct slider buttons since all 3 reviews now show in a clean responsive grid */
+.slider-controls {
+  display: none !important;
+}
+
+/* Remove awkward giant empty section paddings */
+.section {
+  padding: 60px 0 !important;
+}
+
+.wrap {
+  max-width: 1200px !important;
+  margin: 0 auto !important;
+  padding: 0 24px !important;
+}
+
+@media (max-width: 900px) {
+  .review-slider {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+}
