@@ -457,6 +457,12 @@ blockquote:hover {
    FRAME & FUNCTION CLINIC - RESPONSIVE & CLEAN HEALTHCARE STYLES
    ========================================================================= */
 
+
+
+/* =========================================================================
+   FRAME & FUNCTION CLINIC - PREMIUM RESPONSIVE HEALTHCARE DESIGN SYSTEM
+   ========================================================================= */
+
 /* Prevent horizontal overflow causing blank right space and viewport issues */
 html, body {
   overflow-x: hidden !important;
@@ -478,15 +484,26 @@ html, body {
   overflow: hidden !important;
 }
 
+/* Base Content Container Alignment */
+.wrap {
+  width: 100% !important;
+  max-width: 1200px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding-left: 32px !important;
+  padding-right: 32px !important;
+  box-sizing: border-box !important;
+}
+
 /* =========================================================================
-   TOP NOTICE BAR - SLEEK, POLISHED & MINIMAL
+   TOP NOTICE BAR - SLENDER, LUXURIOUS & ALIGNED
    ========================================================================= */
 .top-notice-bar {
-  background: #122821 !important;
+  background: #112620 !important;
   color: #f7f4ee !important;
-  font-size: 12px !important;
+  font-size: 12.5px !important;
   line-height: 1.4 !important;
-  padding: 7px 0 !important;
+  padding: 8px 0 !important;
   border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
   position: relative !important;
   z-index: 50 !important;
@@ -498,25 +515,23 @@ html, body {
   display: flex !important;
   justify-content: space-between !important;
   align-items: center !important;
-  gap: 16px !important;
+  gap: 20px !important;
 }
 
 .notice-left {
   display: flex !important;
   align-items: center !important;
-  gap: 10px !important;
+  gap: 12px !important;
   font-weight: 500 !important;
-  overflow: hidden !important;
-  text-overflow: ellipsis !important;
   white-space: nowrap !important;
 }
 
 .notice-badge {
   background: #c0633b !important;
-  color: #fff !important;
-  font-size: 10px !important;
+  color: #ffffff !important;
+  font-size: 10.5px !important;
   font-weight: 700 !important;
-  padding: 2px 7px !important;
+  padding: 3px 8px !important;
   border-radius: 4px !important;
   letter-spacing: 0.06em !important;
   white-space: nowrap !important;
@@ -524,11 +539,11 @@ html, body {
 
 .notice-dot {
   display: inline-block !important;
-  width: 6px !important;
-  height: 6px !important;
+  width: 6.5px !important;
+  height: 6.5px !important;
   border-radius: 50% !important;
   background: #4ade80 !important;
-  margin-right: 4px !important;
+  margin-right: 5px !important;
   animation: pulseDot 2s infinite !important;
 }
 
@@ -545,135 +560,160 @@ html, body {
 .notice-loc {
   display: inline-flex !important;
   align-items: center !important;
-  gap: 4px !important;
-  color: rgba(247, 244, 238, 0.85) !important;
+  gap: 5px !important;
+  color: rgba(247, 244, 238, 0.88) !important;
+  font-size: 12px !important;
 }
 
 .notice-right {
   display: flex !important;
   align-items: center !important;
-  gap: 12px !important;
+  gap: 14px !important;
   flex-shrink: 0 !important;
 }
 
 .notice-link {
   color: #f7f4ee !important;
   text-decoration: none !important;
-  font-size: 11.5px !important;
+  font-size: 12px !important;
   display: inline-flex !important;
   align-items: center !important;
-  gap: 5px !important;
+  gap: 6px !important;
   opacity: 0.9 !important;
-  transition: opacity 0.2s !important;
+  transition: opacity 0.2s ease, color 0.2s ease !important;
 }
 
 .notice-link:hover {
   opacity: 1 !important;
-  color: #d4a373 !important;
+  color: #e8b25a !important;
 }
 
 /* =========================================================================
-   SITE HEADER - PROPORTIONATE & CLEAN LUXURY ALIGNMENT
+   SITE HEADER - PROPORTIONATE & SPACIOUS DESKTOP ALIGNMENT
    ========================================================================= */
 .site-header {
   position: sticky !important;
   top: 0 !important;
   z-index: 100 !important;
-  background: rgba(247, 244, 239, 0.96) !important;
-  backdrop-filter: blur(12px) !important;
-  -webkit-backdrop-filter: blur(12px) !important;
-  border-bottom: 1px solid rgba(215, 206, 193, 0.5) !important;
+  background: rgba(247, 244, 239, 0.97) !important;
+  backdrop-filter: blur(14px) !important;
+  -webkit-backdrop-filter: blur(14px) !important;
+  border-bottom: 1px solid rgba(215, 206, 193, 0.55) !important;
   padding: 0 !important;
   margin: 0 !important;
   width: 100% !important;
+  max-width: 100% !important;
   box-sizing: border-box !important;
+  box-shadow: 0 4px 20px rgba(23, 51, 43, 0.03) !important;
 }
 
 .header-inner {
   display: flex !important;
   align-items: center !important;
   justify-content: space-between !important;
-  padding-top: 12px !important;
-  padding-bottom: 12px !important;
-  gap: 20px !important;
+  padding-top: 16px !important;
+  padding-bottom: 16px !important;
+  gap: 32px !important;
 }
 
+/* Brand */
 .brand {
   display: flex !important;
   align-items: center !important;
-  gap: 12px !important;
+  gap: 14px !important;
   text-decoration: none !important;
   color: inherit !important;
   flex-shrink: 0 !important;
 }
 
 .brand img {
-  width: 44px !important;
-  height: 44px !important;
+  width: 48px !important;
+  height: 48px !important;
   border-radius: 50% !important;
   object-fit: cover !important;
-  border: 1px solid rgba(23, 51, 43, 0.1) !important;
+  border: 1.5px solid rgba(23, 51, 43, 0.12) !important;
 }
 
 .brand-text {
   display: flex !important;
   flex-direction: column !important;
-  line-height: 1.15 !important;
+  line-height: 1.2 !important;
 }
 
 .brand-title {
-  font-size: 18px !important;
-  font-weight: 700 !important;
-  font-family: inherit !important;
+  font-family: Lora, Georgia, serif !important;
+  font-size: 20px !important;
+  font-weight: 600 !important;
   color: #17332b !important;
   letter-spacing: -0.01em !important;
 }
 
 .brand-sub {
+  font-family: Manrope, sans-serif !important;
   font-size: 8.5px !important;
   font-weight: 700 !important;
-  letter-spacing: 0.14em !important;
+  letter-spacing: 0.16em !important;
   color: #c0633b !important;
   text-transform: uppercase !important;
   margin-top: 2px !important;
 }
 
+/* Desktop Nav Links */
 .nav-links {
   display: flex !important;
   align-items: center !important;
-  gap: 24px !important;
+  gap: 32px !important;
+  margin: 0 auto !important; /* Centers navigation neatly between brand and CTAs */
 }
 
 .nav-links a {
   text-decoration: none !important;
   color: #3b473e !important;
-  font-size: 13.5px !important;
-  font-weight: 500 !important;
+  font-size: 14px !important;
+  font-weight: 600 !important;
   transition: color 0.2s ease !important;
+  position: relative !important;
+  padding: 4px 0 !important;
 }
 
 .nav-links a:hover {
   color: #17332b !important;
 }
 
+.nav-links a::after {
+  content: "" !important;
+  position: absolute !important;
+  bottom: 0 !important;
+  left: 0 !important;
+  width: 0% !important;
+  height: 2px !important;
+  background: #c0633b !important;
+  transition: width 0.25s ease !important;
+}
+
+.nav-links a:hover::after {
+  width: 100% !important;
+}
+
+/* Header CTAs */
 .header-actions {
   display: flex !important;
   align-items: center !important;
-  gap: 10px !important;
+  gap: 14px !important;
   flex-shrink: 0 !important;
 }
 
 .header-call-btn {
   display: inline-flex !important;
   align-items: center !important;
-  gap: 6px !important;
-  font-size: 12.5px !important;
+  gap: 7px !important;
+  font-size: 13px !important;
   font-weight: 600 !important;
-  padding: 8px 14px !important;
+  padding: 9px 18px !important;
   border-radius: 999px !important;
   background: transparent !important;
   color: #17332b !important;
-  border: 1.5px solid rgba(23, 51, 43, 0.2) !important;
+  border: 1.5px solid rgba(23, 51, 43, 0.25) !important;
   text-decoration: none !important;
   transition: all 0.2s ease !important;
 }
@@ -681,40 +721,47 @@ html, body {
 .header-call-btn:hover {
   background: #17332b !important;
   color: #ffffff !important;
+  border-color: #17332b !important;
 }
 
 .header-button {
   display: inline-flex !important;
   align-items: center !important;
-  gap: 6px !important;
+  gap: 7px !important;
   background: #17332b !important;
   color: #ffffff !important;
-  padding: 8px 16px !important;
+  padding: 10px 22px !important;
   border-radius: 999px !important;
-  font-size: 12.5px !important;
+  font-size: 13px !important;
   font-weight: 600 !important;
   text-decoration: none !important;
   border: none !important;
-  transition: background 0.2s ease, transform 0.2s ease !important;
+  box-shadow: 0 4px 14px rgba(23, 51, 43, 0.12) !important;
+  transition: all 0.25s ease !important;
 }
 
 .header-button:hover {
   background: #c0633b !important;
-  transform: translateY(-1px) !important;
+  transform: translateY(-1.5px) !important;
+  box-shadow: 0 6px 18px rgba(192, 99, 59, 0.25) !important;
 }
 
 /* =========================================================================
-   MOBILE RESPONSIVE HEADER
+   MOBILE RESPONSIVE BREAKPOINTS (Maintains perfection on mobile)
    ========================================================================= */
-@media (max-width: 820px) {
+@media (max-width: 900px) {
   .nav-links {
     display: none !important;
   }
 }
 
 @media (max-width: 600px) {
+  .wrap {
+    padding-left: 18px !important;
+    padding-right: 18px !important;
+  }
   .top-notice-bar {
-    padding: 5px 0 !important;
+    padding: 6px 0 !important;
     font-size: 11px !important;
   }
   .notice-wrap {
@@ -725,34 +772,34 @@ html, body {
     gap: 6px !important;
   }
   .notice-sep, .notice-loc, .notice-right {
-    display: none !important; /* Keep mobile bar clean and 1-line */
+    display: none !important;
   }
   .header-inner {
-    padding-top: 8px !important;
-    padding-bottom: 8px !important;
-    gap: 8px !important;
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
+    gap: 10px !important;
   }
   .brand img {
-    width: 34px !important;
-    height: 34px !important;
+    width: 36px !important;
+    height: 36px !important;
   }
   .brand-title {
-    font-size: 14.5px !important;
+    font-size: 15px !important;
   }
   .brand-sub {
     font-size: 7.5px !important;
     letter-spacing: 0.1em !important;
   }
   .header-call-btn {
-    padding: 6px 9px !important;
-    font-size: 11.5px !important;
+    padding: 7px 10px !important;
+    font-size: 12px !important;
   }
   .header-call-btn .call-text {
     display: none !important;
   }
   .header-button {
-    padding: 7px 12px !important;
-    font-size: 11.5px !important;
+    padding: 8px 14px !important;
+    font-size: 12px !important;
   }
 }
 
@@ -807,22 +854,14 @@ html, body {
 }
 
 /* =========================================================================
-   SECTION SPACING - BALANCED (50px / 36px mobile)
+   SECTION SPACING - BALANCED
    ========================================================================= */
 .section {
   padding: 50px 0 !important;
 }
 
-.wrap {
-  max-width: 1160px !important;
-  margin: 0 auto !important;
-  padding-left: 20px !important;
-  padding-right: 20px !important;
-  box-sizing: border-box !important;
-}
-
 .hero {
-  padding-top: 36px !important;
+  padding-top: 40px !important;
   padding-bottom: 40px !important;
 }
 
