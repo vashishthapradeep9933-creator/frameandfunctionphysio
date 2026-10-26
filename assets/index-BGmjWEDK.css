@@ -445,556 +445,409 @@ blockquote:hover {
   100% { transform: translateX(-50%); }
 }
 
-/* 2. Animated Stats Metric Counters Bar */
-.stats-banner {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 24px;
-  max-width: 1200px;
-  margin: -35px auto 40px;
-  padding: 0 24px;
-  position: relative;
-  z-index: 20;
-}
-.stat-box {
-  background: rgba(255, 255, 255, 0.88);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(215, 206, 193, 0.65);
-  border-radius: 20px;
-  padding: 24px 20px;
-  text-align: center;
-  box-shadow: 0 15px 35px rgba(23, 51, 43, 0.05);
-  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
-}
-.stat-box:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 22px 45px rgba(23, 51, 43, 0.1);
-  border-color: rgba(192, 99, 59, 0.4);
-}
-.stat-number {
-  font-size: clamp(32px, 3.5vw, 42px);
-  font-weight: 800;
-  color: #17332b;
-  line-height: 1;
-  margin-bottom: 6px;
-  font-family: inherit;
-  display: flex;
-  justify-content: center;
-  align-items: baseline;
-}
-.stat-number span {
-  color: #c0633b;
-}
-.stat-label {
-  font-size: 12px;
-  font-weight: 600;
-  color: #636d65;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-}
-
-/* 3. Glowing Gradient Animated Border on Featured Cards */
-.glow-card {
-  position: relative;
-  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
-}
-.glow-card::before {
-  content: "";
-  position: absolute;
-  inset: -1.5px;
-  border-radius: inherit;
-  padding: 1.5px;
-  background: linear-gradient(135deg, rgba(192, 99, 59, 0.5), transparent 40%, rgba(23, 51, 43, 0.6));
-  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-  pointer-events: none;
-  opacity: 0.6;
-  transition: opacity 0.4s ease;
-}
-.glow-card:hover::before {
-  opacity: 1;
-  background: linear-gradient(135deg, #c0633b, #d4a373, #17332b);
-}
-
-/* 4. Luxury Shimmer Effect on CTA Buttons */
-a.button, button.button, .wa-btn {
-  position: relative;
-  overflow: hidden;
-}
-a.button::after, button.button::after {
-  content: "";
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: linear-gradient(60deg, transparent 30%, rgba(255, 255, 255, 0.25) 50%, transparent 70%);
-  transform: rotate(25deg) translateY(-100%);
-  animation: agencyShimmer 5s infinite;
-}
-@keyframes agencyShimmer {
-  0% { transform: rotate(25deg) translateY(-120%); }
-  25% { transform: rotate(25deg) translateY(120%); }
-  100% { transform: rotate(25deg) translateY(120%); }
-}
-
-/* 5. Bluejay-style Organic Floating Shapes in Hero */
-.agency-blob-1 {
-  position: absolute;
-  width: 500px;
-  height: 500px;
-  background: radial-gradient(circle, rgba(192, 99, 59, 0.14) 0%, rgba(212, 163, 115, 0.08) 50%, transparent 70%);
-  filter: blur(50px);
-  border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
-  animation: agencyMorph 12s ease-in-out infinite alternate;
-  pointer-events: none;
-  z-index: 0;
-  top: -50px;
-  right: -50px;
-}
-.agency-blob-2 {
-  position: absolute;
-  width: 450px;
-  height: 450px;
-  background: radial-gradient(circle, rgba(23, 51, 43, 0.12) 0%, rgba(35, 77, 65, 0.05) 50%, transparent 70%);
-  filter: blur(55px);
-  border-radius: 60% 40% 30% 70% / 50% 30% 70% 60%;
-  animation: agencyMorph 16s ease-in-out infinite alternate-reverse;
-  pointer-events: none;
-  z-index: 0;
-  bottom: 50px;
-  left: -80px;
-}
-@keyframes agencyMorph {
-  0% { border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%; transform: scale(1) translate(0, 0); }
-  50% { border-radius: 60% 40% 30% 70% / 50% 60% 40% 60%; transform: scale(1.1) translate(20px, -20px); }
-  100% { border-radius: 50% 50% 40% 60% / 40% 60% 50% 50%; transform: scale(0.95) translate(-15px, 15px); }
-}
-
-/* 6. High-End Card Tilt & Lift on Hover */
-article, .card, .step, .why, .review-slider blockquote, details {
-  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease !important;
-}
-article:hover, .card:hover, .step:hover {
-  transform: translateY(-6px) !important;
-  box-shadow: 0 20px 40px rgba(23, 51, 43, 0.08) !important;
-}
-
-@media (max-width: 900px) {
-  .stats-banner {
-    grid-template-columns: repeat(2, 1fr);
-    margin: 20px auto 30px;
-    gap: 14px;
-    padding: 0 16px;
-  }
-  .stat-box {
-    padding: 18px 14px;
-  }
-  .stat-number {
-    font-size: 28px;
-  }
-}
 
 
 /* =========================================================================
-   FRAME & FUNCTION CLINIC - LUXURY HEALTHCARE AGENCY DESIGN SYSTEM
+   FRAME & FUNCTION CLINIC - RESPONSIVE & CLEAN HEALTHCARE STYLES
    ========================================================================= */
 
-/* Top Utility Announcement Bar */
-.top-notice-bar {
-  background: linear-gradient(90deg, #122822 0%, #1c3d33 50%, #122822 100%);
-  color: #f7f4ee;
-  font-size: 12.5px;
-  padding: 8px 24px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  font-weight: 500;
-  letter-spacing: 0.02em;
-}
-.notice-left {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-}
-.notice-badge {
-  background: rgba(192, 99, 59, 0.25);
-  color: #e8b25a;
-  border: 1px solid rgba(232, 178, 90, 0.4);
-  padding: 2px 10px;
-  border-radius: 100px;
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-.notice-right {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-}
-.notice-link {
-  color: #f7f4ee;
-  text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  transition: color 0.2s ease;
-}
-.notice-link:hover {
-  color: #e8b25a;
-}
-.notice-dot {
-  width: 7px;
-  height: 7px;
-  background: #25d366;
-  border-radius: 50%;
-  display: inline-block;
-  box-shadow: 0 0 8px #25d366;
-  animation: pulseGreen 2s infinite;
-}
-@keyframes pulseGreen {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.4; transform: scale(0.85); }
+/* Prevent horizontal overflow causing blank right space and viewport issues */
+html, body {
+  overflow-x: hidden !important;
+  width: 100% !important;
+  position: relative !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  -webkit-text-size-adjust: 100% !important;
 }
 
-/* Glassmorphic Sticky Header */
+#root {
+  overflow-x: hidden !important;
+  width: 100% !important;
+}
+
+/* Ensure no pseudo element creates horizontal spill */
+.hero:before, .hero:after {
+  max-width: 100vw !important;
+  overflow: hidden !important;
+}
+
+/* Top Utility Announcement Bar (Minimal & Clean) */
+.top-notice-bar {
+  background: #17332b !important;
+  color: #f7f4ee !important;
+  font-size: 12px !important;
+  padding: 6px 16px !important;
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+  position: relative !important;
+  z-index: 50 !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+.notice-left {
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+  font-weight: 500 !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+}
+
+.notice-badge {
+  background: #c0633b !important;
+  color: #fff !important;
+  font-size: 10px !important;
+  font-weight: 700 !important;
+  padding: 2px 7px !important;
+  border-radius: 4px !important;
+  letter-spacing: 0.05em !important;
+  white-space: nowrap !important;
+}
+
+.notice-dot {
+  display: inline-block !important;
+  width: 6px !important;
+  height: 6px !important;
+  border-radius: 50% !important;
+  background: #4ade80 !important;
+  margin-right: 4px !important;
+  animation: pulseDot 2s infinite !important;
+}
+
+@keyframes pulseDot {
+  0% { transform: scale(0.95); opacity: 0.8; }
+  50% { transform: scale(1.3); opacity: 1; }
+  100% { transform: scale(0.95); opacity: 0.8; }
+}
+
+.notice-right {
+  display: flex !important;
+  align-items: center !important;
+  gap: 14px !important;
+  flex-shrink: 0 !important;
+}
+
+.notice-link {
+  color: #f7f4ee !important;
+  text-decoration: none !important;
+  font-size: 11.5px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 5px !important;
+  opacity: 0.9 !important;
+  transition: opacity 0.2s !important;
+}
+
+.notice-link:hover {
+  opacity: 1 !important;
+  color: #d4a373 !important;
+}
+
+/* Site Header Styling */
 .site-header {
   position: sticky !important;
   top: 0 !important;
-  z-index: 9999 !important;
-  background: rgba(250, 247, 242, 0.88) !important;
-  backdrop-filter: blur(16px) saturate(180%) !important;
-  -webkit-backdrop-filter: blur(16px) saturate(180%) !important;
-  border-bottom: 1px solid rgba(215, 206, 193, 0.6) !important;
-  padding: 14px 32px !important;
-  transition: all 0.3s ease !important;
+  z-index: 100 !important;
+  background: rgba(247, 244, 239, 0.96) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  border-bottom: 1px solid rgba(215, 206, 193, 0.4) !important;
+  box-sizing: border-box !important;
 }
 
-/* Header Action Group */
-.header-actions {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-}
 .header-phone-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 13.5px;
-  font-weight: 700;
-  color: #17332b;
-  text-decoration: none;
-  padding: 8px 16px;
-  border-radius: 100px;
-  border: 1.5px solid rgba(23, 51, 43, 0.2);
-  transition: all 0.25s ease;
-}
-.header-phone-btn:hover {
-  background: #17332b;
-  color: #ffffff;
-  border-color: #17332b;
-}
-
-/* Interactive Treatment Interactive Grid */
-.therapy-grid-deluxe {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-  margin-top: 40px;
-}
-.therapy-card-deluxe {
-  background: #ffffff;
-  border: 1px solid rgba(215, 206, 193, 0.7);
-  border-radius: 24px;
-  padding: 32px 28px;
-  box-shadow: 0 10px 30px rgba(23, 51, 43, 0.04);
-  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-  position: relative;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-.therapy-card-deluxe:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 25px 50px rgba(23, 51, 43, 0.1);
-  border-color: rgba(192, 99, 59, 0.4);
-}
-.therapy-icon-wrap {
-  width: 52px;
-  height: 52px;
-  border-radius: 16px;
-  background: rgba(23, 51, 43, 0.06);
-  color: #17332b;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 20px;
-  transition: all 0.3s ease;
-}
-.therapy-card-deluxe:hover .therapy-icon-wrap {
-  background: #17332b;
-  color: #ffffff;
-  transform: scale(1.08);
-}
-.therapy-card-deluxe h3 {
-  font-size: 20px;
-  color: #17332b;
-  margin-bottom: 10px;
-  font-weight: 700;
-}
-.therapy-card-deluxe p {
-  font-size: 14px;
-  line-height: 1.65;
-  color: #556258;
-  margin-bottom: 20px;
-}
-.therapy-tag-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-bottom: 24px;
-}
-.therapy-tag {
-  font-size: 11px;
-  font-weight: 600;
-  padding: 4px 10px;
-  border-radius: 100px;
-  background: rgba(247, 244, 238, 0.9);
-  color: #17332b;
-  border: 1px solid rgba(215, 206, 193, 0.6);
-}
-.therapy-cta-link {
-  font-size: 13px;
-  font-weight: 700;
-  color: #c0633b;
-  text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  transition: gap 0.2s ease;
-}
-.therapy-card-deluxe:hover .therapy-cta-link {
-  gap: 10px;
-}
-
-/* Patient Roadmap / Step Cards with Connecting Line */
-.roadmap-container {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
-  margin-top: 40px;
-  position: relative;
-}
-.roadmap-card {
-  background: #ffffff;
-  border: 1px solid rgba(215, 206, 193, 0.7);
-  border-radius: 20px;
-  padding: 28px 24px;
-  position: relative;
-  transition: all 0.3s ease;
-}
-.roadmap-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 16px 35px rgba(23, 51, 43, 0.08);
-  border-color: #17332b;
-}
-.roadmap-num {
-  font-size: 14px;
-  font-weight: 800;
-  color: #c0633b;
-  background: rgba(192, 99, 59, 0.1);
-  width: 34px;
-  height: 34px;
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 16px;
-}
-.roadmap-card h4 {
-  font-size: 17px;
-  font-weight: 700;
-  color: #17332b;
-  margin-bottom: 8px;
-}
-.roadmap-card p {
-  font-size: 13.5px;
-  line-height: 1.55;
-  color: #556258;
-}
-
-@media (max-width: 900px) {
-  .top-notice-bar {
-    display: none;
-  }
-  .site-header {
-    padding: 12px 18px !important;
-  }
-  .therapy-grid-deluxe {
-    grid-template-columns: 1fr;
-    gap: 18px;
-  }
-  .roadmap-container {
-    grid-template-columns: 1fr;
-    gap: 16px;
-  }
-}
-
-
-/* =========================================================================
-   FORCE ALL CONTENT TO BE FULLY VISIBLE & PROPERLY SPACED (NO BLANK HOLES)
-   ========================================================================= */
-
-/* Ensure all stats, service grids, cards, and reviews are 100% visible */
-.stat, .service-grid, .review-slider blockquote, article, .team-card, figure, .reveal {
-  opacity: 1 !important;
-  transform: none !important;
-  visibility: visible !important;
-  display: block;
-}
-
-.service-grid {
-  display: grid !important;
-}
-
-.stats-grid {
-  display: grid !important;
-  opacity: 1 !important;
-  visibility: visible !important;
-}
-
-/* Review Slider Clean Display */
-.review-slider {
-  display: grid !important;
-  grid-template-columns: repeat(3, 1fr) !important;
-  gap: 24px !important;
-  opacity: 1 !important;
-  visibility: visible !important;
-}
-
-.review-slider blockquote {
-  display: flex !important;
-  flex-direction: column !important;
-  justify-content: space-between !important;
-  opacity: 1 !important;
-  transform: none !important;
-  visibility: visible !important;
-}
-
-/* Hide defunct slider buttons since all 3 reviews now show in a clean responsive grid */
-.slider-controls {
-  display: none !important;
-}
-
-/* Remove awkward giant empty section paddings */
-.section {
-  padding: 60px 0 !important;
-}
-
-.wrap {
-  max-width: 1200px !important;
-  margin: 0 auto !important;
-  padding: 0 24px !important;
-}
-
-@media (max-width: 900px) {
-  .review-slider {
-    grid-template-columns: 1fr !important;
-    gap: 16px !important;
-  }
-}
-
-
-/* =========================================================================
-   GENEROUS SECTION SPACING & CLEAN TYPOGRAPHY (DE-CLUTTER)
-   ========================================================================= */
-
-/* Proper breathing room between sections */
-.section {
-  padding: 100px 0 !important;
-}
-
-/* Hero Section Spacing */
-.hero, section:first-of-type {
-  padding-bottom: 70px !important;
-  margin-bottom: 30px !important;
-}
-
-/* Sub-headings and eyebrow spacing */
-.eyebrow {
-  margin-bottom: 18px !important;
-}
-
-h2 {
-  margin-bottom: 24px !important;
-}
-
-/* Top utility bar alignment fix */
-.top-notice-bar {
-  display: flex !important;
-  align-items: center !important;
-  justify-content: space-between !important;
-  flex-wrap: nowrap !important;
-}
-.notice-left {
-  display: flex !important;
-  align-items: center !important;
-  gap: 16px !important;
-}
-.notice-left span {
   display: inline-flex !important;
   align-items: center !important;
   gap: 6px !important;
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  padding: 6px 12px !important;
+  border-radius: 999px !important;
+  background: transparent !important;
+  color: #17332b !important;
+  border: 1px solid rgba(23, 51, 43, 0.25) !important;
+  text-decoration: none !important;
+  transition: all 0.2s ease !important;
+}
+
+.header-phone-btn:hover {
+  background: #17332b !important;
+  color: #ffffff !important;
+}
+
+/* Mobile Responsive Optimization for Header & Notice Bar */
+@media (max-width: 768px) {
+  .top-notice-bar {
+    padding: 6px 12px !important;
+    justify-content: center !important;
+    font-size: 11px !important;
+  }
+  .notice-left {
+    justify-content: center !important;
+    gap: 8px !important;
+  }
+  .notice-right {
+    display: none !important; /* Hide long address / handles on mobile to keep bar clean */
+  }
+  .site-header {
+    padding: 10px 14px !important;
+    gap: 8px !important;
+  }
+  .site-header .brand img {
+    width: 32px !important;
+    height: 32px !important;
+  }
+  .site-header .brand span {
+    font-size: 13px !important;
+  }
+  .site-header .brand small {
+    display: none !important;
+  }
+  .site-header nav {
+    display: none !important;
+  }
+  .header-phone-btn {
+    padding: 5px 8px !important;
+    font-size: 11px !important;
+    margin-left: auto !important;
+  }
+  .header-phone-btn span {
+    display: none !important; /* show only phone icon on small mobile */
+  }
+  .site-header .header-button {
+    padding: 6px 12px !important;
+    font-size: 11px !important;
+    min-height: 34px !important;
+  }
+}
+
+/* Section Spacing - Balanced (reduced from 100px to comfortable 50px) */
+.section {
+  padding: 50px 0 !important;
+}
+
+.wrap {
+  max-width: 1160px !important;
+  margin: 0 auto !important;
+  padding-left: 20px !important;
+  padding-right: 20px !important;
+  box-sizing: border-box !important;
+}
+
+.hero {
+  padding-top: 36px !important;
+  padding-bottom: 40px !important;
+}
+
+.eyebrow {
+  margin-bottom: 12px !important;
+}
+
+h2 {
+  margin-bottom: 16px !important;
 }
 
 /* Stats Section Spacing */
-.stats-grid {
-  padding: 40px 0 !important;
-  gap: 40px !important;
+.stats-band {
+  background: #17332b !important;
+  padding: 30px 0 !important;
 }
+
+.stats-grid {
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr) !important;
+  gap: 20px !important;
+  padding: 0 !important;
+  text-align: center !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+.stats-grid .stat {
+  opacity: 1 !important;
+  transform: none !important;
+  visibility: visible !important;
+}
+
 .stats-grid .num {
-  font-size: clamp(38px, 4.5vw, 54px) !important;
+  font-size: clamp(32px, 3.8vw, 46px) !important;
   font-weight: 800 !important;
   color: #faf7f2 !important;
   display: flex !important;
   align-items: baseline !important;
   justify-content: center !important;
-  margin-bottom: 10px !important;
+  margin-bottom: 6px !important;
 }
+
 .stats-grid .num em {
   color: #c0633b !important;
   font-style: normal !important;
 }
+
 .stats-grid small {
-  font-size: 13px !important;
+  font-size: 12px !important;
   font-weight: 600 !important;
   text-transform: uppercase !important;
-  letter-spacing: 0.1em !important;
-  color: rgba(250, 247, 242, 0.75) !important;
+  letter-spacing: 0.08em !important;
+  color: rgba(250, 247, 242, 0.8) !important;
 }
 
-/* Reviews de-clutter */
+@media (max-width: 600px) {
+  .section {
+    padding: 36px 0 !important;
+  }
+  .stats-grid {
+    grid-template-columns: 1fr 1fr 1fr !important;
+    gap: 8px !important;
+  }
+  .stats-grid .num {
+    font-size: 26px !important;
+  }
+  .stats-grid small {
+    font-size: 9.5px !important;
+    letter-spacing: 0.02em !important;
+  }
+}
+
+/* Visibility guarantees - No blank empty gaps */
+.stat, .service-grid, .review-slider blockquote, article, .team-card, figure, .reveal {
+  opacity: 1 !important;
+  transform: none !important;
+  visibility: visible !important;
+}
+
+.service-grid {
+  display: grid !important;
+  gap: 20px !important;
+}
+
+/* Reviews Display */
+.review-slider {
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr) !important;
+  gap: 20px !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
 .review-slider blockquote {
-  padding: 32px 28px !important;
-  line-height: 1.7 !important;
+  background: #ffffff !important;
+  border: 1px solid rgba(215, 206, 193, 0.6) !important;
+  border-radius: 16px !important;
+  padding: 24px 20px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
 }
+
 .review-slider blockquote p {
-  font-size: 15px !important;
+  font-size: 14.5px !important;
+  line-height: 1.6 !important;
   color: #3b473e !important;
-  margin-bottom: 20px !important;
+  margin-bottom: 16px !important;
 }
-.review-slider blockquote footer {
+
+.slider-controls {
+  display: none !important;
+}
+
+@media (max-width: 850px) {
+  .review-slider {
+    grid-template-columns: 1fr !important;
+    gap: 14px !important;
+  }
+}
+
+/* Clinical Specialties Interactive Cards */
+.therapy-grid-deluxe {
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr) !important;
+  gap: 20px !important;
+  margin-top: 24px !important;
+}
+
+.therapy-card-deluxe {
+  background: #ffffff !important;
+  border: 1px solid rgba(215, 206, 193, 0.7) !important;
+  border-radius: 18px !important;
+  padding: 24px 20px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+  transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+}
+
+.therapy-card-deluxe:hover {
+  transform: translateY(-4px) !important;
+  box-shadow: 0 12px 28px rgba(23, 51, 43, 0.08) !important;
+}
+
+.therapy-icon-wrap {
+  width: 44px !important;
+  height: 44px !important;
+  border-radius: 12px !important;
+  background: rgba(192, 99, 59, 0.1) !important;
+  color: #c0633b !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  margin-bottom: 14px !important;
+}
+
+.therapy-card-deluxe h3 {
+  font-size: 17px !important;
   font-weight: 700 !important;
   color: #17332b !important;
+  margin: 0 0 8px !important;
 }
-.review-slider blockquote footer small {
-  display: block !important;
-  font-weight: 500 !important;
-  color: #636d65 !important;
-  margin-top: 4px !important;
+
+.therapy-card-deluxe p {
+  font-size: 13.5px !important;
+  line-height: 1.55 !important;
+  color: #556258 !important;
+  margin: 0 0 14px !important;
+}
+
+.therapy-tag-list {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 6px !important;
+  margin-bottom: 16px !important;
+}
+
+.therapy-tag {
+  font-size: 11px !important;
+  font-weight: 600 !important;
+  background: #f4efe6 !important;
+  color: #17332b !important;
+  padding: 3px 8px !important;
+  border-radius: 6px !important;
+}
+
+.therapy-cta-link {
+  font-size: 13px !important;
+  font-weight: 700 !important;
+  color: #c0633b !important;
+  text-decoration: none !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 4px !important;
+}
+
+@media (max-width: 850px) {
+  .therapy-grid-deluxe {
+    grid-template-columns: 1fr !important;
+    gap: 14px !important;
+  }
+}
+
+/* Fast Shimmer on main CTA buttons */
+a.button, button.button, .wa-btn {
+  position: relative;
+  overflow: hidden;
 }
