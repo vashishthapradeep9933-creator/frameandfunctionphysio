@@ -832,3 +832,151 @@ img { max-width: 100%; height: auto; }
   background: rgba(23, 51, 43, 0.06) !important;
   transform: translateY(-1px) !important;
 }
+
+
+/* ==========================================================================
+   JAIPUR GEO-SEO & AEO HUB STYLES
+   ========================================================================== */
+.jaipur-geo-hub {
+  padding-top: 60px !important;
+  padding-bottom: 70px !important;
+  border-top: 1px solid var(--sand) !important;
+}
+
+.geo-hub-header {
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto 40px;
+}
+
+.geo-hub-header h2 {
+  margin-top: 12px;
+  margin-bottom: 16px;
+  font-size: clamp(26px, 3.2vw, 38px);
+}
+
+.geo-hub-subtitle {
+  font-size: 14.5px;
+  line-height: 1.65;
+  color: #556258;
+}
+
+.geo-hub-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-bottom: 36px;
+}
+
+.geo-zone-card {
+  background: #ffffff;
+  border: 1px solid rgba(215, 206, 193, 0.75);
+  border-radius: 18px;
+  padding: 24px 20px;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+}
+
+.geo-zone-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(23, 51, 43, 0.08);
+  border-color: rgba(158, 70, 36, 0.4);
+}
+
+.geo-zone-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--green);
+  margin-bottom: 12px;
+}
+
+.geo-zone-header svg {
+  color: var(--clay);
+  flex-shrink: 0;
+}
+
+.geo-zone-header h3 {
+  font-size: 17px;
+  font-weight: 700;
+  margin: 0;
+  font-family: Manrope, sans-serif;
+  color: var(--green);
+}
+
+.geo-zone-desc {
+  font-size: 13px;
+  line-height: 1.55;
+  color: #556258;
+  margin: 0 0 16px;
+}
+
+.geo-tag-cloud {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: auto;
+}
+
+.geo-pill {
+  font-size: 11.5px;
+  font-weight: 500;
+  padding: 5px 11px;
+  border-radius: 20px;
+  background: #fbf7f1;
+  color: #2f4a43;
+  border: 1px solid rgba(215, 206, 193, 0.8);
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+
+.geo-pill:hover {
+  background: var(--sand);
+  color: var(--clay);
+  border-color: var(--clay);
+}
+
+/* AEO Box (Answer Engine Optimization) */
+.geo-aeo-box {
+  background: linear-gradient(135deg, #f7f3ec 0%, #ede6db 100%);
+  border: 1px solid var(--sand);
+  border-radius: 18px;
+  padding: 28px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+}
+
+.geo-aeo-text h4 {
+  font-family: Lora, Georgia, serif;
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--green);
+  margin: 0 0 8px;
+}
+
+.geo-aeo-text p {
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: #556258;
+  margin: 0;
+  max-width: 720px;
+}
+
+.geo-aeo-cta {
+  flex-shrink: 0;
+}
+
+@media (max-width: 900px) {
+  .geo-hub-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .geo-aeo-box {
+    flex-direction: column;
+    text-align: left;
+    align-items: flex-start;
+    padding: 24px 20px;
+  }
+}
