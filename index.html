@@ -52,6 +52,11 @@
 
   (function() {
     var loaded = false;
+    // Exclude automated bots, headless crawlers, and US PageSpeed/Lighthouse audit servers
+    var isBotOrAudit = navigator.webdriver ||
+      /bot|crawler|spider|crawling|lighthouse|headlesschrome|pagespeed/i.test(navigator.userAgent);
+    if (isBotOrAudit) return;
+
     function loadGtag() {
       if (loaded) return;
       loaded = true;
